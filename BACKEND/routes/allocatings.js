@@ -44,35 +44,35 @@ router.route("/").get((req,res)=>{
     })
 })
 
-// //update
+ //update
 
 
-// //async function (runs simaltaneously)
-// //fetching userid 
+ //async function (runs simaltaneously)
+ //fetching userid 
 
 
-// router.route("/update/:id").put(async (req, res) => {
-//     let userid = req.params.id;
-//     const{ equipmentid,department,wattage,hours} = req.body;
+router.route("/update/:id").put(async (req, res) => {
+    let userid = req.params.id;
+    const{ equipmentid,department,wattage,hours} = req.body;
 
-//     const updateallocating= {
+    const updateallocating= {
          
-//         equipmentid,
-//         department,
-//         wattage,
-//         hours
+        equipmentid,
+        department,
+        wattage,
+        hours
         
-//        // totalamount
-//     }
-//     //waiting till update is over
+       
+    }
+    //waiting till update is over
 
-//     const update = await allocating.findByIdAndUpdate(userid,updateallocating).then(() => {
-//         res.status(200).send({status:"user updated"})
-//     }).catch((err)=>{
-//     res.status(500).send({status:"error with updating data" ,error: err.message});
-//   })
+    const update = await allocating.findByIdAndUpdate(userid,updateallocating).then(() => {
+        res.status(200).send({status:"user updated"})
+    }).catch((err)=>{
+    res.status(500).send({status:"error with updating data" ,error: err.message});
+  })
    
-// })
+ })
 // //delete
 
 
