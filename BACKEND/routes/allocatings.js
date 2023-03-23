@@ -88,14 +88,14 @@ router.route("/delete/:id").delete(async(req,res)=>{
   
 })
 
-// router.route("/get/:id").get(async (req,res) =>{
-//     let userid = req.params.id;
-//     await allocating.findById(userid).then(()=>{
-//         res.status(200).send({status:"user fetched"})
-//         console.log(err.message);
-//         res.status(500).send({status:"error with get user",error: err.message});
-//     })
-//})
+router.route("/get/:id").get(async (req,res) =>{
+    let userid = req.params.id;
+    await allocating.findById(userid).then(()=>{
+        res.status(200).send({status:"user fetched"})
+        console.log(err.message);
+        res.status(500).send({status:"error with get user",error: err.message});
+    })
+})
 
 
 module.exports = router;
