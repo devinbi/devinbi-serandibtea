@@ -28,25 +28,27 @@ router.route("/add").post((req,res)=>{
 
     })
 
-// })
+})
+
 //fetch
 
 
 
 
-// router.route("/").get((req,res)=>{
+router.route("/").get((req,res)=>{
 
-//     allocating.find().then((allocatings)=>{
-//         res.json(allocatings)
-//     }).catch((err)=>{
-//         console.log(err)
-//     })
-// })
-//update
+    allocating.find().then((allocatings)=>{
+        res.json(allocatings)
+    }).catch((err)=>{
+        console.log(err)
+    })
+})
+
+// //update
 
 
-//async function (runs simaltaneously)
-//fetching userid 
+// //async function (runs simaltaneously)
+// //fetching userid 
 
 
 // router.route("/update/:id").put(async (req, res) => {
@@ -62,7 +64,7 @@ router.route("/add").post((req,res)=>{
         
 //        // totalamount
 //     }
-    //waiting till update is over
+//     //waiting till update is over
 
 //     const update = await allocating.findByIdAndUpdate(userid,updateallocating).then(() => {
 //         res.status(200).send({status:"user updated"})
@@ -93,8 +95,7 @@ router.route("/add").post((req,res)=>{
 //         console.log(err.message);
 //         res.status(500).send({status:"error with get user",error: err.message});
 //     })
-})
-
+//})
 
 
 module.exports = router;
