@@ -69,19 +69,19 @@ http: router.route("/add").post((req, res) => {
     })
      
   })
-  // //delete
+  //delete
   
   
-  // router.route("/delete/:id").delete(async(req,res)=>{
-  //   let userid=req.params.id;
-  //   await equipment.findByIdAndDelete(userid).then(()=>{
-  //       res.status(200).send({status:"user deleted"});
-  //   }).catch((err)=>{
-  //       console.log(err.message);
-  //       res.status(500).send({status:"error with delete user", error:err.message});
-  //   })
+  router.route("/delete/:id").delete(async(req,res)=>{
+    let userid=req.params.id;
+    await equipment.findByIdAndDelete(userid).then(()=>{
+        res.status(200).send({status:"user deleted"});
+    }).catch((err)=>{
+        console.log(err.message);
+        res.status(500).send({status:"error with delete user", error:err.message});
+    })
     
-  // })
+  })
   
   router.route("/get/:id").get(async (req,res) =>{
       let userid = req.params.id;
