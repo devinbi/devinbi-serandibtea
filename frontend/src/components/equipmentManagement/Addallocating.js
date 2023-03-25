@@ -32,7 +32,7 @@ function AddAllocating() {
     <div className="container">
       <form onSubmit={sendData}>
         <div class="form-group">
-          <label for="orderid">Order ID :</label>
+          <label for="orderid">equipment ID :</label>
           <input
             type="text"
             class="form-control"
@@ -44,7 +44,7 @@ function AddAllocating() {
           />
         </div>
         <div className="form-group">
-          <label for="ordertype">Order Type:</label>
+          <label for="ordertype">department Type:</label>
           <input
             type="text"
             class="form-control"
@@ -57,7 +57,7 @@ function AddAllocating() {
         </div>
 
         <div className="form-group">
-          <label for="numberofunits">Number of units</label>
+          <label for="numberofunits">wattage</label>
           <input
             type="text"
             class="form-control"
@@ -70,12 +70,12 @@ function AddAllocating() {
         </div>
 
         <div class="form-group">
-          <label for="unitprice">Unit Price :</label>
+          <label for="unitprice"> hours</label>
           <input
             type="text"
             class="form-control"
             id="unitprice"
-            placeholder="Enter unit price"
+            placeholder="Enter number of hours"
             onChange={(e) => {
               setHours(e.target.value);
             }}

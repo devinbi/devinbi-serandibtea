@@ -48,8 +48,8 @@ export  default function Addequipment(){
                   <title Add expense />
                     <form onSubmit={sendData}>
                     <div class="form-group">
-                            <label for="expenseid">Expense ID :</label>
-                            <input type="text" class="form-control" id="expenseid" pattern="[E][0-9]{4}" placeholder="Enter expense id"
+                            <label for="expenseid">equipment ID :</label>
+                            <input type="text" class="form-control" id="expenseid" pattern="[E][0-9]{4}" placeholder="Enter equipment ID"
                             onChange={(e)=>{
                                 setEquipmentid(e.target.value);
                             }}/>
@@ -58,7 +58,7 @@ export  default function Addequipment(){
 
 
                         <div class="form-group">
-                            <label for="totalamount">Total Amount:</label>
+                            <label for="totalamount">equipment name :</label>
                             <input type="text" class="form-control" id="totalamount" 
                             onChange={(e)=>{
                                 setEquipmentname(e.target.value);
@@ -69,16 +69,16 @@ export  default function Addequipment(){
 
 
                         <div class="form-group">
-                            <label for="expensetype">Expense Type:</label>
+                            <label for="expensetype">equipment type:</label>
                             <select name ="expensetype" class="form-control" id="expensetype" 
                             onChange={(e)=>{
                                 setEquipmenttype(e.target.value);
                                 
                             }}>
                              <option >CHOOSE</option>  
-                             <option value="supplier">Supplier Cost</option>
-                             <option value="maintenance">Maintenance Cost</option>
-                             <option value="salary">Salary Cost</option>
+                             <option value="supplier">office equipment</option>
+                             <option value="maintenance">factory equipment</option>
+                             
                             </select>
                          </div>
                          
@@ -91,33 +91,34 @@ export  default function Addequipment(){
                         </div>
                         
                         <div className="form-group">
-                            <label for="description">Description</label>
-                            <select type="text" class="form-control" id="description" placeholder="Enter description" onChange={(e)=>{
+                            <label for="description">department</label>
+                            <select type="text" class="form-control" id="description" placeholder="choose department" onChange={(e)=>{
                                 setDepartment(e.target.value);
                             }}>
                                 <option >CHOOSE</option>  
-                             <option value="supplier">Supplier Cost</option>
-                             <option value="maintenance">Maintenance Cost</option>
-                             <option value="salary">Salary Cost</option>
+                             <option value="supplier">withering department</option>
+                             <option value="maintenance">rolling department</option>
+                             <option value="salary">oxidation and drying department</option>
                             </select>
                         </div>
 
                         <div className="form-group">
-                            <label for="description">Description</label>
-                            <input type="text" class="form-control" id="description" placeholder="Enter description" onChange={(e)=>{
+                            <label for="description">intertek</label>
+                            <input type="text" class="form-control" id="description" placeholder="Enter number" onChange={(e)=>{
                                 setIntertek(e.target.value);
                             }}/>
                         </div>
 
                         <div className="form-group">
-                            <label for="description">Description</label>
+                            <label for="description">status</label>
                             <select type="text" class="form-control" id="description" placeholder="Enter description" onChange={(e)=>{
                                 setStatus(e.target.value);
                             }}>
                                 <option >CHOOSE</option>  
-                             <option value="supplier">Supplier Cost</option>
-                             <option value="maintenance">Maintenance Cost</option>
-                             <option value="salary">Salary Cost</option>
+                             <option value="supplier">idle</option>
+                             <option value="maintenance">active</option>
+                             <option value="salary">replace</option>
+                             <option value="salary">repair</option>
                             </select>
                         </div>
             
