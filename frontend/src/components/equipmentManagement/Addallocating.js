@@ -44,16 +44,21 @@ function AddAllocating() {
           />
         </div>
         <div className="form-group">
-          <label for="ordertype">department Type:</label>
-          <input
+          <label for="description">department</label>
+          <select
             type="text"
             class="form-control"
-            id="ordertype"
-            placeholder="Enter order type"
+            id="description"
+            placeholder="choose department"
             onChange={(e) => {
               setDepartment(e.target.value);
             }}
-          />
+          >
+            <option>CHOOSE</option>
+            <option value="supplier">withering department</option>
+            <option value="maintenance">rolling department</option>
+            <option value="salary">oxidation and drying department</option>
+          </select>
         </div>
 
         <div className="form-group">
