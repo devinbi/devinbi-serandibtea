@@ -38,6 +38,12 @@ const monitorRouter = require("./routes/monitors.js");
 
 app.use("/monitor",monitorRouter);
 
+const employeeRouter= require("./routes/employees.js");
+app.use("/employee",employeeRouter);
+
+const performanceRouter= require("./routes/performances.js");
+app.use("/performance",performanceRouter);
+
 
 
 app.listen(PORT, () => {
