@@ -25,14 +25,14 @@ const connection = mongoose.connection;
  })
 
 
-const allocatingRouter = require("./routes/allocatings.js");
+const allocatingRouter = require("./routes/products.js");
 
 
-app.use("/allocating",allocatingRouter);
+app.use("/product",allocatingRouter);
 
-const equipmentRouter = require("./routes/equipments.js");
+const equipmentRouter = require("./routes/suppliers.js");
 
-app.use("/equipment",equipmentRouter);
+app.use("/supplier",equipmentRouter);
 
 
 app.listen(PORT, () => {

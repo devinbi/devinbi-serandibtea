@@ -1,17 +1,16 @@
-// import  AddAllocating  from "./components/equipmentManagement/Addallocating";
-// import AddEquipment from "./components/equipmentManagement/Addequipment";
+import  AddSupplier  from "./Components/InventoryManagement/AddSupplier";
 
 
-// function App() {
+function App() {
 
 
-//   return ( 
-//   <div className="App">
-//       <AddAllocating/>
+  return ( 
+  <div className="App">
+      <AddSupplier/>
       
-//     </div>
-//   )
+    </div>
+  )
  
-// }
+}
 
-// export default App;
+export default App;
