@@ -37,21 +37,23 @@ function AddSupplier() {
     }
 
 
-    // useEffect(() => {
-    //     setResult((wattage ? wattage : 0) * (hours ? hours : 0));
-    //     console.log("result", result);
-    // }, [wattage, hours]);
+    useEffect(() => {
+
+        setNet_weight((weight ? Number(weight) : 0) - ((moisture_content? Number(moisture_content) : 0) + (ripe_tea_leaves ? Number(ripe_tea_leaves) : 0)));
+        console.log("performance", weight);
+
+    }, [weight, moisture_content, ripe_tea_leaves]);
       
 
 
     return(
        
-        <div class="page-component-body p-3">
-           <div class="container input-main-form pt-3 border border-success">
-                           <div class="container border-top ">
+        <div class="page-component-body p-3 " style={{backgroundColor: "#E6F2D0"}}>
+           <div class="container input-main-form-emp pt-3 border border-success" style={{backgroundColor: "white"}}>
+                           <div class="container border-top " >
                                <div class="row">
                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center text-light " style={{backgroundColor: "#658A4E"}}>
-                                       <h3 className="topic-V text-left mt-4 mb-4 ">OEE Calculation</h3>
+                                       <h3 className="topic-V text-left mt-4 mb-4 ">Tea Leaves Quantity Per Day</h3>
                                    </div>
                                 </div>
                     
@@ -82,13 +84,7 @@ function AddSupplier() {
                               }}/>
   
                           </div>
-                          {/* <div class="form mb-2">
-                              <label for="totalamount">Result For Availability:</label>
-                              <input type="text" class="form-control" id="availabilty" disabled
-                              value={availability}
-                              />
-  
-                          </div> */}
+                          
                           <div class="form mb-2">
                               <label for="totalamount">Moisture Content of the Tea Leaves</label>
                               <input type="text" class="form-control" id="totalamount" 
@@ -105,18 +101,12 @@ function AddSupplier() {
                               }}/>
   
                           </div>
-                          {/* <div class="form mb-2">
-                              <label for="totalamount">Result For Quality:</label>
-                              <input type="text" class="form-control" id="quality" disabled
-                              value={quality}/>
-  
-                          </div> */}
+
+
                           <div class="form mb-2">
                               <label for="totalamount">Net Weight</label>
-                              <input type="text" class="form-control" id="idealcycle" 
-                              onChange={(e)=>{
-                                setNet_weight(e.target.value);
-                              }}/>
+                              <input type="text" class="form-control" id="net_weight" disabled
+                              value={net_weight}/>
   
                           </div>
                           
