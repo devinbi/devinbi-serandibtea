@@ -9,6 +9,8 @@ router.route("/add").post((req,res)=>{
     const department=req.body.department;
     const wattage=Number(req.body.wattage);
     const hours=Number(req.body.hours);
+    const result=Number(req.body.result);
+    console.log(result)
    // const totalamount=Number(req.body.totalamount);
 
     const newallocating = new allocating({
@@ -17,7 +19,8 @@ router.route("/add").post((req,res)=>{
          equipmentid,
          department,
          wattage,
-         hours
+         hours,
+         result
         // totalamount
 
     })
@@ -29,7 +32,6 @@ router.route("/add").post((req,res)=>{
     })
 
 })
-
 //fetch
 
 
@@ -43,26 +45,26 @@ router.route("/").get((req,res)=>{
         console.log(err)
     })
 })
+//update
 
- //update
 
-
- //async function (runs simaltaneously)
- //fetching userid 
+//async function (runs simaltaneously)
+//fetching userid 
 
 
 router.route("/update/:id").put(async (req, res) => {
     let userid = req.params.id;
-    const{ equipmentid,department,wattage,hours} = req.body;
+    const{ equipmentid,department,wattage,hours,result} = req.body;
 
     const updateallocating= {
          
         equipmentid,
         department,
         wattage,
-        hours
+        hours,
+        result
         
-       
+       // totalamount
     }
     //waiting till update is over
 
@@ -72,13 +74,14 @@ router.route("/update/:id").put(async (req, res) => {
     res.status(500).send({status:"error with updating data" ,error: err.message});
   })
    
- })
+})
 //delete
 
 
 
-router.route("/delete/:id").delete(async(req,res)=>{
+router.route("/delete/:id").post(async(req,res)=>{
   let userid=req.params.id;
+  console.log(userid)
   await allocating.findByIdAndDelete(userid).then(()=>{
       res.status(200).send({status:"user deleted"});
   }).catch((err)=>{
@@ -96,6 +99,7 @@ router.route("/get/:id").get(async (req,res) =>{
         res.status(500).send({status:"error with get user",error: err.message});
     })
 })
+
 
 
 module.exports = router;

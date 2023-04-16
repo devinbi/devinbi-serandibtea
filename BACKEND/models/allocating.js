@@ -21,6 +21,11 @@ const allocatingSchema = new Schema({
         type : Number,
         required: true
     }
+    ,
+    result : {
+        type : Number,
+        required: true
+    }
  
 
 

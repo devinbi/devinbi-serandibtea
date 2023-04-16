@@ -49,7 +49,7 @@ export  default function Addequipment(){
                     <form onSubmit={sendData}>
                     <div class="form-group">
                             <label for="expenseid">equipment ID :</label>
-                            <input type="text" class="form-control" id="expenseid" pattern="[E][0-9]{4}" placeholder="Enter equipment ID"
+                            <input type="text" class="form-control" id="expenseid" pattern="[E][0-9]{4}" placeholder="Enter expense id"
                             onChange={(e)=>{
                                 setEquipmentid(e.target.value);
                             }}/>
@@ -58,7 +58,7 @@ export  default function Addequipment(){
 
 
                         <div class="form-group">
-                            <label for="totalamount">equipment name :</label>
+                            <label for="totalamount">equipment name:</label>
                             <input type="text" class="form-control" id="totalamount" 
                             onChange={(e)=>{
                                 setEquipmentname(e.target.value);
@@ -69,16 +69,16 @@ export  default function Addequipment(){
 
 
                         <div class="form-group">
-                            <label for="expensetype">equipment type:</label>
+                            <label for="expensetype">equipment Type:</label>
                             <select name ="expensetype" class="form-control" id="expensetype" 
                             onChange={(e)=>{
                                 setEquipmenttype(e.target.value);
                                 
                             }}>
                              <option >CHOOSE</option>  
-                             <option value="supplier">office equipment</option>
-                             <option value="maintenance">factory equipment</option>
-                             
+                             <option value="supplier">repair</option>
+                             <option value="maintenance">replace</option>
+                             <option value="salary">maintenenca</option>
                             </select>
                          </div>
                          
@@ -92,19 +92,19 @@ export  default function Addequipment(){
                         
                         <div className="form-group">
                             <label for="description">department</label>
-                            <select type="text" class="form-control" id="description" placeholder="choose department" onChange={(e)=>{
+                            <select type="text" class="form-control" id="description" placeholder="Enter description" onChange={(e)=>{
                                 setDepartment(e.target.value);
                             }}>
                                 <option >CHOOSE</option>  
-                             <option value="supplier">withering department</option>
-                             <option value="maintenance">rolling department</option>
-                             <option value="salary">oxidation and drying department</option>
+                             <option value="supplier">cutting</option>
+                             <option value="maintenance">rolling</option>
+                             <option value="salary">heating</option>
                             </select>
                         </div>
 
                         <div className="form-group">
                             <label for="description">intertek</label>
-                            <input type="text" class="form-control" id="description" placeholder="Enter number" onChange={(e)=>{
+                            <input type="text" class="form-control" id="description" placeholder="Enter description" onChange={(e)=>{
                                 setIntertek(e.target.value);
                             }}/>
                         </div>
@@ -115,10 +115,9 @@ export  default function Addequipment(){
                                 setStatus(e.target.value);
                             }}>
                                 <option >CHOOSE</option>  
-                             <option value="supplier">idle</option>
-                             <option value="maintenance">active</option>
+                             <option value="supplier">repair</option>
+                             <option value="maintenance">Maintenance Cost</option>
                              <option value="salary">replace</option>
-                             <option value="salary">repair</option>
                             </select>
                         </div>
             
