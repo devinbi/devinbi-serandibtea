@@ -34,6 +34,11 @@ const equipmentRouter = require("./routes/equipments.js");
 
 app.use("/equipment",equipmentRouter);
 
+const monitorRouter = require("./routes/monitors.js");
+
+app.use("/monitor",monitorRouter);
+
+
 
 app.listen(PORT, () => {
     console.log(`server is up and running on porT: ${PORT}`);
