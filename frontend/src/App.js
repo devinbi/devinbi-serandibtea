@@ -1,12 +1,12 @@
+import AddAllocating from "./components/equipmentManagement/Addallocating";
+import AddEquipment from "./components/equipmentManagement/Addequipment";
+import Equipmentview from "./components/equipmentManagement/viewequipment";
+import Addmonitor from "./components/equipmentManagement/Addmonitor";
+import Viewmonitor from "./components/equipmentManagement/viewmonitor";
+import Viewallocating from "./components/equipmentManagement/viewallocating";
+import Equipmentreport from "./components/equipmentManagement/equipmentreport";
 
-import AddEquipment from "./Components/equipmentManagement/Addequipment";
-import Equipmentview from "./Components/equipmentManagement/viewequipment";
-import Addmonitor from "./Components/equipmentManagement/Addmonitor";
-import Viewmonitor from "./Components/equipmentManagement/viewmonitor";
-import Viewallocating from "./Components/equipmentManagement/viewallocating";
-import Equipmentreport from "./Components/equipmentManagement/equipmentreport"
-
-import AddSupplier from "./Components/InventoryManagement/AddSupplier";
+import AddSupplier from "./components/InventoryManagement/AddSupplier";
 // import Header from "./Header";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -16,8 +16,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/allocating/viewallocating" element= {<Viewallocating />}/>
+          <Route path="/addAllocating" element={<AddAllocating />}/>
           <Route path="/addequipment" element={<AddEquipment />}/>
-          
           <Route path="/addmonitor" element={<Addmonitor />}/>
           <Route path="/viewmonitor" element={<Viewmonitor />}/>
           <Route path="/reporte" element={<Equipmentreport />}/>

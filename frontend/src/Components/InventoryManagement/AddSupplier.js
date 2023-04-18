@@ -1,8 +1,16 @@
 import React,{useState , useEffect} from 'react';
 import axios from 'axios';
+import "../../NavigateBar.css";
+import { FiLogOut } from 'react-icons/fi';
+import { AiOutlineBars } from 'react-icons/ai';
 
 
 function AddSupplier() {
+
+    // important to slide navigatebar
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false); 
+    const handleSidebarToggle = () => { setIsSidebarOpen(!isSidebarOpen); };
+
 
     const [supplierid, setSupplierid] = useState("");
     const [suppliername, setSuppliername] = useState("");
@@ -47,84 +55,226 @@ function AddSupplier() {
 
 
     return(
-       
-        <div class="page-component-body p-3 " style={{backgroundColor: "#E6F2D0"}}>
-           <div class="container input-main-form-emp pt-3 border border-success" style={{backgroundColor: "white"}}>
-                           <div class="container border-top " >
-                               <div class="row">
-                                   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center text-light " style={{backgroundColor: "#658A4E"}}>
-                                       <h3 className="topic-V text-left mt-4 mb-4 ">Tea Leaves Quantity Per Day</h3>
-                                   </div>
-                                </div>
+
+    <div class="wrapper">
+        
+        <nav id="sidebar" className={isSidebarOpen ? "active" : ""}>
+            <div class="sidebar-header">
+                <h3></h3>
+                <div class="logo">
+                {/* <img src={require('./images/logo1.png')} alt="logo" /> */}
+                <img src="/images/logo1.png" alt="logo"/>
+                
+                </div>
+            </div>
+
+            <ul class="list-unstyled components">
+                {/* <p>SIDE NAVIGATE BAR</p> */}
+                <li >
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Inventory Management</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="/AddSupplier">Add Tea Leaves Quantity</a>
+                        </li>
+                        <li>
+                            <a href="/AddSupplier">View All Received Tea Leaves</a>
+                        </li>
+                        <li>
+                            <a href="#">Add Transferred product</a>
+                        </li>
+                        <li>
+                            <a href="#">View Total product</a>
+                        </li>
+                        <li>
+                            <a href="#">View Rejected Product</a>
+                        </li>
+                    </ul>
+                </li>
+                
+                <li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Equipment Management</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a href="/addequipment">Add Equipment Details</a>
+                        </li>
+                        <li>
+                            <a href="#">View Equipment Details</a>
+                        </li>
+                        <li>
+                            <a href="#">Allocate Equipment</a>
+                        </li>
+                        <li>
+                            <a href="#">View Allocate Details</a>
+                        </li>
+                        <li>
+                            <a href="#">Monitoring Equipment</a>
+                        </li>
+                        <li>
+                            <a href="#">View Performance Details</a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li>
+                    <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Employee Management</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu1">
+                        <li>
+                            <a href="#">Add Employees</a>
+                        </li>
+                        <li>
+                            <a href="#">View Employees</a>
+                        </li>
+                        <li>
+                            <a href="#">Add Performance</a>
+                        </li>
+                        <li>
+                            <a href="#">View Performance</a>
+                        </li>
+                        <li>
+                            <a href="#">High Performance list</a>
+                        </li>
+                        <li>
+                            <a href="#">Resigned Employees</a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li>
+                    <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Equipment Management</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu2">
+                        <li>
+                            <a href="#">Add Equipment Details</a>
+                        </li>
+                        <li>
+                            <a href="#">View Equipment Details</a>
+                        </li>
+                        <li>
+                            <a href="#">Allocate Equipment</a>
+                        </li>
+                        <li>
+                            <a href="#">View Allocate Details</a>
+                        </li>
+                        <li>
+                            <a href="#">Monitoring Equipment</a>
+                        </li>
+                        <li>
+                            <a href="#">View Performance Details</a>
+                        </li>
+
+                    </ul>
+                </li>
+            </ul>
+            
+            
+            <button class="logout-button"><FiLogOut />Logout</button>
+
+
+        </nav>
+
+        
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                        <span onClick={handleSidebarToggle}> <AiOutlineBars /></span> 
                     
-                      <form class="form" onSubmit={sendData}>
-                      <div class="form pt-5 mb-2">
-                              <label for="expenseid">Supplier ID :</label>
-                              <input type="text" class="form-control formInput" id="expenseid" pattern="[S][0-9]{4}" placeholder="Enter expense id"
-                              onChange={(e)=>{
-                                setSupplierid(e.target.value);
-                              }}/>
-                          
-                          </div>
-  
-  
-                          <div class="form mb-2">
-                              <label for="totalamount">Supplier Name</label>
-                              <input type="text" class="form-control formInput" id="runtime" 
-                              onChange={(e)=>{
-                                setSuppliername(e.target.value);
-                              }}/>
-  
-                          </div>
-                          <div class="form mb-2">
-                              <label for="totalamount">Weight</label>
-                              <input type="text" class="form-control formInput" id="production" 
-                              onChange={(e)=>{
-                                setWeight(e.target.value);
-                              }}/>
-  
-                          </div>
-                          
-                          <div class="form mb-2">
-                              <label for="totalamount">Moisture Content of the Tea Leaves</label>
-                              <input type="text" class="form-control" id="totalamount" 
-                              onChange={(e)=>{
-                                setMoisture_content(e.target.value);
-                              }}/>
-  
-                          </div>
-                          <div class="form mb-2">
-                              <label for="totalamount">Ripe Tea Leaves</label>
-                              <input type="text" class="form-control" id="totalamount" 
-                              onChange={(e)=>{
-                                setRipe_tea_leaves(e.target.value);
-                              }}/>
-  
-                          </div>
+                </div>
+            </nav>
 
 
-                          <div class="form mb-2">
-                              <label for="totalamount">Net Weight</label>
-                              <input type="text" class="form-control" id="net_weight" disabled
-                              value={net_weight}/>
-  
-                          </div>
-                          
-  
-                          
-                     <div className="col py-3 text-center">
-                      <button  type="submit" class="btn btn-info btn-lg" >Submit</button>
-                      </div>
-                      
-                      </form>
-                  </div>
-                  </div>
-                  </div>
+            {/* Our Form Start */}
+            <div class="page-component-body p-3 " style={{backgroundColor: "#E6F2D0"}}>
+                <div class="container input-main-form-emp pt-3 border border-success" style={{backgroundColor: "white"}}>
+                    <div class="container border-top " >
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-uppercase  " style={{backgroundColor: "#658A4E", color: 'white', }}>
+                                <h3 className="topic-V text-left mt-4 mb-4 "  >Tea Leaves Quantity Per Day</h3>
+                            </div>
+                        </div>
+            
+                        <form class="form" onSubmit={sendData}>
+                            <div class="form pt-5 mb-2">
+                                    <label for="expenseid">Supplier ID :</label>
+                                    <input type="text" class="form-control formInput" id="expenseid" pattern="[S][0-9]{4}" placeholder="Enter expense id"
+                                    onChange={(e)=>{
+                                        setSupplierid(e.target.value);
+                                    }}/>
+                                
+                            </div>
+
+
+                            <div class="form mb-2">
+                                <label for="totalamount">Supplier Name</label>
+                                <input type="text" class="form-control formInput" id="runtime" 
+                                onChange={(e)=>{
+                                    setSuppliername(e.target.value);
+                                }}/>
+
+                            </div>
+                            <div class="form mb-2">
+                                <label for="totalamount">Weight</label>
+                                <input type="text" class="form-control formInput" id="production" 
+                                onChange={(e)=>{
+                                    setWeight(e.target.value);
+                                }}/>
+
+                            </div>
+                            
+                            <div class="form mb-2">
+                                <label for="totalamount">Moisture Content of the Tea Leaves</label>
+                                <input type="text" class="form-control" id="totalamount" 
+                                onChange={(e)=>{
+                                    setMoisture_content(e.target.value);
+                                }}/>
+
+                            </div>
+                            <div class="form mb-2">
+                                <label for="totalamount">Ripe Tea Leaves</label>
+                                <input type="text" class="form-control" id="totalamount" 
+                                onChange={(e)=>{
+                                    setRipe_tea_leaves(e.target.value);
+                                }}/>
+
+                            </div>
+
+
+                            <div class="form mb-2">
+                                <label for="totalamount">Net Weight</label>
+                                <input type="text" class="form-control" id="net_weight" disabled
+                                value={net_weight}/>
+
+                            </div>
+                            
+                            <div className="col py-3 text-center">
+                            <button  type="submit" class="btn btn-info btn-lg" >Submit</button>
+                            </div>
+                        
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+            
+
+            
+        </div>
+
+    </div>
+       
+        
               
-     )
-
-
+    )
 
 }
 
+
+
 export default AddSupplier;
+
+
+
+
+
+        
