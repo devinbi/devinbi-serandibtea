@@ -65,7 +65,7 @@ router.route("/update/:id").put(async (req,res)=>{
 
 //Delete Employee
 
-router.route("/delete/:id").delete(async (req, res)=>{
+router.route("/delete/:id").post(async (req, res)=>{
 
     let performanceID = req.params.id;
   
