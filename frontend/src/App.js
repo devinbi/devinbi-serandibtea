@@ -6,6 +6,7 @@ import Viewmonitor from "./components/equipmentManagement/viewmonitor";
 import Viewallocating from "./components/equipmentManagement/viewallocating";
 import Equipmentreport from "./components/equipmentManagement/equipmentreport";
 
+import AddTransferredproduct from "./components/InventoryManagement/AddTransferredproduct";
 import AddSupplier from "./components/InventoryManagement/AddSupplier";
 // import Header from "./Header";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -25,6 +26,7 @@ function App() {
   
             
           <Route path="/AddSupplier" element={<AddSupplier />}/>
+          <Route path="/AddTransferredproduct" element={<AddTransferredproduct />}/>
 
         </Routes>
       </BrowserRouter>
