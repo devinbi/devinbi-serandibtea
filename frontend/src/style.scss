@@ -541,8 +541,8 @@
       0px 0px 10px 0px rgba(0, 0, 0, 0.19);
   }
   .table-emp1 {
-    position:absolute;
-    margin: 30px 30px 30px 20px;
+    position:relative;
+    margin: 0px 0px 30px 0px;
     padding: 5px;
     width: auto;
     border-radius: 0.5rem;
@@ -563,6 +563,15 @@
   .view-td:hover {
     cursor: pointer;
     color: red;
+  }
+
+  .headerNameFont{
+    font-family: 'Source Code Pro', monospace;
+  }
+
+  .tbl-Action-icon{
+    cursor: pointer;
+    
   }
   
   /*css for colors*/

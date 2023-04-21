@@ -77,7 +77,7 @@ function AddSupplier() {
                             <a href="/AddSupplier">Add Tea Leaves Quantity</a>
                         </li>
                         <li>
-                            <a href="/AddSupplier">View All Received Tea Leaves</a>
+                            <a href="/ViewAllReceivedTeaLeaves">View All Received Tea Leaves</a>
                         </li>
                         <li>
                             <a href="/AddTransferredproduct">Add Transferred product</a>
@@ -188,7 +188,7 @@ function AddSupplier() {
                 <div class="container input-main-form-emp pt-3 border border-success" style={{backgroundColor: "white"}}>
                     <div class="container border-top " >
                         <div class="row">
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-uppercase  " style={{backgroundColor: "#658A4E", color: 'white', }}>
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-uppercase headerNameFont" style={{backgroundColor: "#658A4E", color: 'white', }}>
                                 <h3 className="topic text-center mt-3 mb-3 "  >Tea Leaves Quantity Per Day</h3>
                             </div>
                         </div>

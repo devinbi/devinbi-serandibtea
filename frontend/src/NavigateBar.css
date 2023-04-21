@@ -101,7 +101,8 @@ a:focus {
 #sidebar ul li a:hover {
     
     color: #000000;
-    background-image: linear-gradient(315deg, #52a781 2%, #6fccad 74%);
+    background-image: linear-gradient(315deg, #0a854e 0%, #6fccad 80%);
+    /* background-image: linear-gradient(315deg, #48a88a 0%, #0a854e 74%); */
 }
 
 #sidebar ul li.active>a,
