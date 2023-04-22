@@ -120,9 +120,7 @@ function ViewAllReceivedTeaLeaves() {
             <div class="sidebar-header">
                 <h3></h3>
                 <div class="logo">
-                {/* <img src={require('./images/logo1.png')} alt="logo" /> */}
                 <img src="/images/logo1.png" alt="logo"/>
-                
                 </div>
             </div>
 
@@ -233,7 +231,7 @@ function ViewAllReceivedTeaLeaves() {
         <div id="content">
 
             
-                <div class="container-fluid">
+                <div class="see-more-icon">
                         <span onClick={handleSidebarToggle}> <AiOutlineBars /></span> 
                 </div>
             
@@ -259,7 +257,7 @@ function ViewAllReceivedTeaLeaves() {
                             size="lg"
                             aria-labelledby="contained-modal-title-vcenter"
                             centered
-                        >
+                            >
                             <TestModal
                                 data={modalData}
                                 onHide={() => setModalShow(false)}
@@ -313,7 +311,7 @@ function ViewAllReceivedTeaLeaves() {
 
                 
 
-        
+                        <div className="dlt-confirm mt-3"></div>
                         {/* modal for delete employee record */}
                         <Modal show={modalDeleteConfirm} onHide={() => setModalDeleteConfirm(false)} size="md"
                             aria-labelledby="contained-modal-title-vcenter" centered>
@@ -321,8 +319,9 @@ function ViewAllReceivedTeaLeaves() {
                                 <Modal.Title>Confirm Deletion</Modal.Title>
                             </Modal.Header>
                             <Modal.Body>
-                                <p>Are you want to delete this item ?</p>
-
+                                <div className="dlt-confirm mt-3">
+                                    <p>Are you want to delete this item  ?</p>
+                                </div>
                             </Modal.Body>
                             <Modal.Footer>
 
@@ -334,7 +333,7 @@ function ViewAllReceivedTeaLeaves() {
                                     </div>
                                     <div className="col-6 text-right" onClick={() => setModalDeleteConfirm(false)}>
                                         <button type="reset" className="btn btn-reset">
-                                            cancel
+                                            Cancel
                                         </button>
                                     </div>
                                 </div>

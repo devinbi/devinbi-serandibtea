@@ -167,9 +167,9 @@ function AddTransferredproduct() {
                 </li>
             </ul>
             
-            
-            <button class="logout-button"><FiLogOut />Logout</button>
-
+            <div class="btn-logout" >
+            <button class="logout-button"><FiLogOut size="30px" color="black"/>Logout</button>
+            </div>
 
         </nav>
 
@@ -180,9 +180,9 @@ function AddTransferredproduct() {
 
         
         
-            <div class="container-fluid">
-                    <span onClick={handleSidebarToggle}> <AiOutlineBars /></span>               
-            </div>
+                <div class="see-more-icon">
+                        <span onClick={handleSidebarToggle}> <AiOutlineBars /></span> 
+                </div>
         
             {/* Our Form Start */}
             <div class="page-component-body p-5" style={{backgroundColor: "#cce7bb"}}  >

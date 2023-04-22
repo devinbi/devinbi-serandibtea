@@ -25,14 +25,23 @@ const connection = mongoose.connection;
  })
 
 
-const allocatingRouter = require("./routes/products.js");
-app.use("/product",allocatingRouter);
+const productRouter = require("./routes/products.js");
+app.use("/product",productRouter);
+
+const supplierRouter = require("./routes/suppliers.js");
+app.use("/supplier",supplierRouter);
 
 
 
+const allocatingRouter = require("./routes/allocatings.js");
+app.use("/allocating",allocatingRouter);
 
-const equipmentRouter = require("./routes/suppliers.js");
-app.use("/supplier",equipmentRouter);
+const equipmentRouter = require("./routes/equipments.js");
+app.use("/equipment",equipmentRouter);
+
+const monitorRouter = require("./routes/monitors.js");
+app.use("/monitor",monitorRouter);
+
 
 // const monitorRouter = require("./routes/monitors.js");
 
