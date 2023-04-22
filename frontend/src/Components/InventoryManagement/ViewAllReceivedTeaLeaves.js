@@ -67,15 +67,15 @@ function ViewAllReceivedTeaLeaves() {
         console.log("----------------",data._id);
         
         // console.log("modalDataDelete.fyiff",modalDataDelete);
-        const value = axios.post(`http://localhost:8070/allocating/delete/${data._id}`);
-        //console.log("deletedddd", value);
+        const value = axios.delete(`http://localhost:8070/product/delete/${data._id}`);
+        console.log("deletedddd", value);
         if (value) {
             console.log("Value",value.data);
             // alert("**Permenantly deleted the Vehicle Record");
             // window.""location.replace("/viewReservation");
             Swal.fire({
                 title: 'Success!',
-                text: 'Permenantly deleted the Vehicle Record &  added successfully !!',
+                text: 'Permenantly deleted the Product Record & added successfully !!',
                 icon: 'success',
                 showConfirmButton: false,
                 timer: 2000
@@ -87,8 +87,8 @@ function ViewAllReceivedTeaLeaves() {
         
     }
 
-    const openModal = (allocating) => {
-        setData(allocating);
+    const openModal = (AllReceivedTeaLeaves) => {
+        setData(AllReceivedTeaLeaves);
         handleViewOnClick();
     }
 
