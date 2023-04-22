@@ -175,10 +175,8 @@ function AddSupplier() {
         <div id="content">
 
             
-                <div class="container-fluid">
-
+                <div class="see-more-icon">
                         <span onClick={handleSidebarToggle}> <AiOutlineBars /></span> 
-                    
                 </div>
             
 
@@ -196,7 +194,7 @@ function AddSupplier() {
                         <form class="form" onSubmit={sendData}>
                             <div class="form pt-5 mb-2">
                                     <label for="expenseid">Supplier ID :</label>
-                                    <input type="text" class="form-control formInput" id="expenseid" pattern="[S][0-9]{4}" placeholder="Enter expense id"
+                                    <input type="text" class="form-control formInput" id="expenseid" pattern="[S][0-9]{4}" placeholder="Enter Supplier ID"
                                     onChange={(e)=>{
                                         setSupplierid(e.target.value);
                                     }}/>
@@ -205,16 +203,16 @@ function AddSupplier() {
 
 
                             <div class="form mb-2">
-                                <label for="totalamount">Supplier Name</label>
-                                <input type="text" class="form-control formInput" id="runtime" 
+                                <label for="totalamount">Supplier Name :</label>
+                                <input type="text" class="form-control formInput" id="runtime" placeholder="Enter Supplier Name"
                                 onChange={(e)=>{
                                     setSuppliername(e.target.value);
                                 }}/>
 
                             </div>
                             <div class="form mb-2">
-                                <label for="totalamount">Weight</label>
-                                <input type="text" class="form-control formInput" id="production" 
+                                <label for="totalamount">Weight :</label>
+                                <input type="text" class="form-control formInput" id="production" placeholder="Enter Weight"
                                 onChange={(e)=>{
                                     setWeight(e.target.value);
                                 }}/>
@@ -222,16 +220,16 @@ function AddSupplier() {
                             </div>
                             
                             <div class="form mb-2">
-                                <label for="totalamount">Moisture Content of the Tea Leaves</label>
-                                <input type="text" class="form-control" id="totalamount" 
+                                <label for="totalamount">Moisture Content of the Tea Leaves :</label> 
+                                <input type="text" class="form-control" id="totalamount" placeholder="Enter Moisture Content of the Tea Leaves"
                                 onChange={(e)=>{
                                     setMoisture_content(e.target.value);
                                 }}/>
 
                             </div>
                             <div class="form mb-2">
-                                <label for="totalamount">Ripe Tea Leaves</label>
-                                <input type="text" class="form-control" id="totalamount" 
+                                <label for="totalamount">Ripe Tea Leaves :</label>
+                                <input type="text" class="form-control" id="totalamount" placeholder="Enter Ripe Tea Leaves"
                                 onChange={(e)=>{
                                     setRipe_tea_leaves(e.target.value);
                                 }}/>
@@ -240,7 +238,7 @@ function AddSupplier() {
 
 
                             <div class="form mb-2">
-                                <label for="totalamount">Net Weight</label>
+                                <label for="totalamount">Net Weight :</label>
                                 <input type="text" class="form-control" id="net_weight" disabled
                                 value={net_weight}/>
 
