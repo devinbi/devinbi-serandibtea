@@ -244,7 +244,7 @@ function Viewallocating() {
                 </div>
                 <div className="col-6 text-right" onClick={() => setModalDeleteConfirm(false)}>
                     <button type="reset" className="btn btn-reset">
-                        cancel
+                        Cancel
                     </button>
                 </div>
             </div>

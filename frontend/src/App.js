@@ -5,7 +5,12 @@ import Updateequipment from "./components/equipmentManagement/updateequipment";
 import Addmonitor from "./components/equipmentManagement/Addmonitor";
 import Viewmonitor from "./components/equipmentManagement/viewmonitor";
 import Viewallocating from "./components/equipmentManagement/viewallocating";
-import Equipmentreport from "./components/equipmentManagement/equipmentreport"
+import Equipmentreport from "./components/equipmentManagement/equipmentreport";
+
+import AddVehicle from "./components/TransportManagement/addingVehicle";
+import ViewAllVehicle from "./components/TransportManagement/ViewAllVehicle";
+import UpdateVehicle from "./components/TransportManagement/updateVehicle";
+
 // import Header from "./Header";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -21,7 +26,10 @@ function App() {
           <Route path="/viewmonitor" element={<Viewmonitor />}/>
           <Route path="/reporte" element={<Equipmentreport />}/>
           <Route path="/equipment/viewequipment" element={<Equipmentview />}/>
-  
+
+          <Route path="/addvehicle" element={<AddVehicle />}/>
+          <Route path="/Vehicle/viewVehicle" element={<ViewAllVehicle />}/>
+          <Route path="/updatevehicle" element={<UpdateVehicle />}/>
             
 
         </Routes>

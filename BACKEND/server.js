@@ -44,6 +44,9 @@ app.use("/employee",employeeRouter);
 const performanceRouter= require("./routes/performances.js");
 app.use("/performance",performanceRouter);
 
+const vehicleRouter = require("./routes/vehicles.js");
+app.use("/vehicle", vehicleRouter);
+
 
 
 app.listen(PORT, () => {
