@@ -9,6 +9,7 @@ import AddEmployee from "./components/EmployeeManagement/Addemployee";
 import AddPerformance from "./components/EmployeeManagement/Addperformance";
 import Viewemployee from "./components/EmployeeManagement/Viewemployee";
 import Viewperformance from "./components/EmployeeManagement/Viewperformance";
+import Viewhighperformance from "./components/EmployeeManagement/Viewhighperformance";
 
 
 
@@ -31,6 +32,8 @@ function App() {
           <Route path="/addperformance" element={<AddPerformance />}/>
           <Route path="/employee/Viewemployee" element={<Viewemployee />}/>
           <Route path="performance/Viewperformance" element={<Viewperformance />}/>
+          <Route path="performance/Viewhighperformance" element={<Viewhighperformance />}/>
+         
           
   
             

@@ -1,6 +1,6 @@
 /*page-body*/
 .page-component-body {
-  min-height: 900px;
+  min-height: 1450px;
   font-family: "Titillium Web", sans-serif;
   // src: local("Titillium WebLight"), local("TitilliumWeb-Light"),
   //   url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff)
@@ -283,7 +283,7 @@ li.nav-item {
   width: 800px;
   position: relative;
   border-radius: 0.5rem;
-  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2),
+  box-shadow: 0px 0px 10px 2px rgba(20, 71, 0, 0.2),
     0px 0px 10px 0px rgba(0, 0, 0, 0.19);
 }
 
@@ -354,15 +354,18 @@ textarea {
 
 /*css for buttons*/
 // save
-.btn-ok {
-  background-color: #1ec290;
-  color: white;
-  width: 200px;
-  font-size: 1.1rem;
-  border-radius: 0.5rem;
-  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2),
-    0px 0px 10px 0px rgba(0, 0, 0, 0.19);
+.btn-ok1{
+background-image: linear-gradient(315deg, #48a88a 0%, #0a854e 74%);
+color: white;
+height: 45px;
+width: 180px;
+font-size: 1.1rem;
+border-radius: 0.6rem;
+border: none;
+box-shadow: 0px 0px 10px 2px rgba(16, 194, 146, 0.2),
+  0px 0px 10px 0px rgba(207, 24, 24, 0.19);
 }
+
 
 .btn-close {
   background-color: #1fc191;
@@ -684,8 +687,8 @@ a.nav-link:link {
 }
 
 /*vehicle adding form*/
-.topic-V {
-  font-size: 20px;
+.topic {
+  font-size: 30px;
 }
 
 .input-main-form-V {
@@ -778,4 +781,3 @@ a.nav-link:link {
   border-radius: 100%;
   opacity: 0.7;
 }
-

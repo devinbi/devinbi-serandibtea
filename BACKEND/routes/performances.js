@@ -90,6 +90,22 @@ router.route("/get/:id").get(async (req, res)=> {
     })
 })
 
+//filter user deatils -- (get filtered by performance)
+
+router.route("/filter").get((req, res) => {
+    // let performanceID = req.params.id;
+     performance.find({
+       attendanceCount: { $gt: 250 },
+       otCount: { $gt: 750 }
+     })
+     .then((performance) => {
+       res.json(performance)
+     })
+     .catch((err) => {
+       console.log(err);
+       res.status(500).send({ status: "Error with fetching data", error: err.message })
+     })
+   })
 
 
 module.exports = router; 

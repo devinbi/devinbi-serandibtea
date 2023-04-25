@@ -13,7 +13,7 @@ import Header from "../../Header";
 
 
 
-function Viewemployee() {
+function Viewperformance() {
 
     // const [search, setSearch] = useState("");
 
@@ -243,4 +243,4 @@ function Viewemployee() {
     )
 }
 
-export default Viewemployee;
+export default Viewperformance;
