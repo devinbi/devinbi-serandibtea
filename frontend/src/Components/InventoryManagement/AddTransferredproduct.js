@@ -206,7 +206,7 @@ function AddTransferredproduct() {
 
 
                             <div class="form mb-3">
-                                <label for="totalamount">Product Name</label>
+                                <label for="totalamount">Product Name :</label>
                                 <input type="text" class="form-control formInput" id="runtime" placeholder="Enter Product Name"
                                 onChange={(e)=>{
                                     setProductName(e.target.value);
@@ -214,7 +214,7 @@ function AddTransferredproduct() {
 
                             </div>
                             <div class="form mb-3">
-                                <label for="totalamount">Type</label>
+                                <label for="totalamount">Type :</label>
                                 <input type="text" class="form-control formInput" id="production" placeholder="Enter Type"
                                 onChange={(e)=>{
                                     setType(e.target.value);
@@ -223,7 +223,7 @@ function AddTransferredproduct() {
                             </div>
                             
                             <div class="form mb-3">
-                                <label for="totalamount">Quantity of the Product</label>
+                                <label for="totalamount">Quantity of the Product :</label>
                                 <input type="text" class="form-control formInput" id="totalamount" placeholder="Enter Quantity of the Product"
                                 onChange={(e)=>{
                                     setQuantity(e.target.value);
@@ -231,23 +231,44 @@ function AddTransferredproduct() {
 
                             </div>
                             <div class="form mb-3">
-                                <label for="totalamount">Weight</label>
+                                <label for="totalamount">Weight : ( In Gram )</label>
                                 <input type="text" class="form-control formInput" id="totalamount" placeholder="Enter Weight"
                                 onChange={(e)=>{
                                     setWeight(e.target.value);
                                 }}/>
 
                             </div>
-                            <div class="form mb-3">
+                            {/* <div class="form mb-3">
                                 <label for="totalamount">Status</label>
                                 <input type="text" class="form-control formInput" id="totalamount" placeholder="Enter Status"
                                 onChange={(e)=>{
                                     setStatus(e.target.value);
                                 }}/>
 
-                            </div>
+                            </div> */}
+
+
+
                             <div class="form mb-3">
-                                <label for="totalamount">Date</label>
+                                <label for="totalamount">Status :</label>
+                                <select type="text" class="form-control" id="totalamount" placeholder="Enter Status"
+                                onChange={(e)=>{
+                                    setStatus(e.target.value);
+                                }}>
+
+                                    <option>Choose</option>
+                                    <option value="Pending">Pending</option>
+                                    <option value="Approved">Approved</option>
+                                    <option value="Rejected">Rejected</option>
+                                </select>
+                            </div>
+
+
+
+
+
+                            <div class="form mb-3">
+                                <label for="totalamount">Date :</label>
                                 <input type="text" class="form-control formInput" id="totalamount" placeholder="Enter Date"
                                 onChange={(e)=>{
                                     setDate(e.target.value);
