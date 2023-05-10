@@ -7,12 +7,14 @@ import { AiOutlineBars } from 'react-icons/ai';
 import { HiPencilSquare } from "react-icons/hi2";
 import { HiOutlineTrash } from "react-icons/hi2";
 import Swal from 'sweetalert2'
-import TestModal from './ViewAllReceivedTeaLeaves';
+import TestModal from './ViewAllTransferredProduct';
+
+import UpdateTransferredProductModal from './UpdateTransferredProduct';
 
 
 
 
-function ViewAllReceivedTeaLeaves() {
+function ViewAllTransferredProduct() {
 
     // important to slide navigatebar
     const [isSidebarOpen, setIsSidebarOpen] = useState(false); 
@@ -341,17 +343,17 @@ function ViewAllReceivedTeaLeaves() {
                         </Modal>
 
                         {/* modal for update the data of vehicle  */}
-                        {/* <Modal
+                        <Modal
                             show={modalUpdate}
                             onHide={() => setModalUpdate(false)}
                             size="lg"
                             aria-labelledby="contained-modal-title-vcenter"
                             centered>
-                            <UpdateallocatingModal
+                            <UpdateTransferredProductModal
                                 data={modalDataUpdate}
                                 onHide={() => setModalUpdate(false)}
                             />
-                        </Modal> */}
+                        </Modal>
                     </div>
                 </div>
             </div>
@@ -372,7 +374,7 @@ function ViewAllReceivedTeaLeaves() {
 
 
 
-export default ViewAllReceivedTeaLeaves;
+export default ViewAllTransferredProduct;
 
 
 
