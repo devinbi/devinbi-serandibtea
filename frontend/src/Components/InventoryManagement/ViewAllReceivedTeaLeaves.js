@@ -7,13 +7,12 @@ import { AiOutlineBars } from 'react-icons/ai';
 import { HiPencilSquare } from "react-icons/hi2";
 import { HiOutlineTrash } from "react-icons/hi2";
 import Swal from 'sweetalert2'
-import TestModal from './ViewAllVehicle';
-import UpdateVehicleModal from './updateVehicle';
+import TestModal from './ViewAllReceivedTeaLeaves';
 
 
 
 
-function ViewAllVehicle() {
+function ViewAllReceivedTeaLeaves() {
 
     // important to slide navigatebar
     const [isSidebarOpen, setIsSidebarOpen] = useState(false); 
@@ -23,7 +22,7 @@ function ViewAllVehicle() {
 
 
 
-    const [ViewAllVehicle, setViewAllVehicle] = useState([]);
+    const [AllReceivedTeaLeaves, setAllReceivedTeaLeaves] = useState([]);
  
     const [modalData, setData] = useState([]);
     const [modalShow, setModalShow] = useState(false);
@@ -37,11 +36,11 @@ function ViewAllVehicle() {
 
     useEffect(() => {
 
-        function getAllVehicle() {
-            axios.get("http://localhost:8070/Vehicle/viewVehicle").then((res) => {
+        function getAllReceivedTeaLeaves() {
+            axios.get("http://localhost:8070/product/").then((res) => {
 
 
-            setViewAllVehicle(res.data.reverse());
+            setAllReceivedTeaLeaves(res.data.reverse());
 
                 //console.log("Data recieved");
 
@@ -60,23 +59,23 @@ function ViewAllVehicle() {
 
         }
 
-        getAllVehicle();
+        getAllReceivedTeaLeaves();
 
     }, []);
 
-    const deletevehicle = async (data) => {
+    const deleteRental = async (data) => {
         console.log("----------------",data._id);
         
         // console.log("modalDataDelete.fyiff",modalDataDelete);
-        const value = axios.delete(`http://localhost:8070/Vehicle/deleteVehicle/${data._id}`);
-        console.log("deleted", value);
+        const value = axios.delete(`http://localhost:8070/product/delete/${data._id}`);
+        console.log("deletedddd", value);
         if (value) {
             console.log("Value",value.data);
             // alert("**Permenantly deleted the Vehicle Record");
             // window.""location.replace("/viewReservation");
             Swal.fire({
                 title: 'Success!',
-                text: 'Permenantly deleted the vehivle & owner details successfully !!',
+                text: 'Permenantly deleted the Product Record & added successfully !!',
                 icon: 'success',
                 showConfirmButton: false,
                 timer: 2000
@@ -88,8 +87,8 @@ function ViewAllVehicle() {
         
     }
 
-    const openModal = (ViewAllVehicle) => {
-        setData(ViewAllVehicle);
+    const openModal = (AllReceivedTeaLeaves) => {
+        setData(AllReceivedTeaLeaves);
         handleViewOnClick();
     }
 
@@ -197,13 +196,13 @@ function ViewAllVehicle() {
                     </ul>
                 </li>
                 <li>
-                    <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle ">Transport Management</a>
+                    <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle ">Equipment Management</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu2">
                         <li>
-                            <a href="#">Add Vehicle & Owner Details</a>
+                            <a href="#">Add Equipment Details</a>
                         </li>
                         <li>
-                            <a href="#">View Vehicle & Owner Details</a>
+                            <a href="#">View Equipment Details</a>
                         </li>
                         <li>
                             <a href="#">Allocate Equipment</a>
@@ -241,11 +240,11 @@ function ViewAllVehicle() {
             {/* Our Form Start */}
             <div class="page-component-body p-5 " style={{backgroundColor: "#cce7bb"}}>
                 <div class="container input-main-form-emp pt-3 border border-success" style={{backgroundColor: "white"}}>
-                    <div class="container ">
+                    <div class="container " >
 
                             <div class="col">
                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-uppercase headerNameFont" style={{backgroundColor: "#658A4E", color: 'white', }}>
-                                    <h3 className="topic text-center mt-3 mb-3 pt-3 pb-3"  >View All Vehicle & Owner details</h3>
+                                    <h3 className="topic text-center mt-3 mb-3 pt-3 pb-3"  >Tea Leaves Quantity Per Day</h3>
                                 </div>
                             </div>
 
@@ -270,59 +269,35 @@ function ViewAllVehicle() {
                             <table class="table table-hover">
                                 <thead class="">
                                     <tr style={{backgroundColor: "#527449" , color:"white"}} >
-                                            <th class="text-center">Vehicle ID</th>
-                                            <th class="text-center">Vehicle Type</th>
-                                            <th class="text-center">Vehicle Brand</th>
-                                            <th class="text-center">Vehicle Model</th>
-                                            <th class="text-center">Vehicle Registration Number</th>
-                                            <th class="text-center">Current Mileage</th>
-                                            <th class="text-center">Insurance Type</th>
-                                            <th class="text-center">Insurance Name</th>
-                                            <th class="text-center">Air Condition</th>
-                                            <th class="text-center">Eco Test Issued Date</th>
-                                            <th class="text-center">Eco Test Expire Date</th>
-                                            <th class="text-center">Fuel Type</th>
-                                            <th class="text-center">Vehicle Owner</th>
-                                            <th class="text-center">Owner Name</th>
-                                            <th class="text-center">NIC</th>
-                                            <th class="text-center">Address</th>
-                                            <th class="text-center">Contact Number</th>
+                                            <th class="text-center">Product Name</th>
+                                            <th class="text-center">Type</th>
+                                            <th class="text-center">Quantity</th>
+                                            <th class="text-center">Weight</th>
+                                            <th class="text-center">Status</th>
                                             <th class="text-center">Date</th>
                                             <th class="text-center">Action</th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
-                                    {ViewAllVehicle.map((ViewAllVehicle) => {
+                                    {AllReceivedTeaLeaves.map((AllReceivedTeaLeaves) => {
 
                                         return (
                                             <tr>
                                                 {/* <td onClick={() => openModal(AllReceivedTeaLeaves)} data-toggle-1="tooltip" data-placement="right" title="Click to view details" className="view-td">
                                                     {AllReceivedTeaLeaves.supplierid}
                                                 </td> */}
-                                                <td class="text-center">{ViewAllVehicle.Vehicle_ID}</td>
-                                                <td class="text-center">{ViewAllVehicle.Vehicle_Type}</td>
-                                                <td class="text-center">{ViewAllVehicle.Vehicle_Brand}</td>
-                                                <td class="text-center">{ViewAllVehicle.Vehicle_Model}</td>
-                                                <td class="text-center">{ViewAllVehicle.Vehicle_Registration_No}</td>
-                                                <td class="text-center">{ViewAllVehicle.Current_Mileage}</td>
-                                                <td class="text-center">{ViewAllVehicle.Insurance_Type}</td>
-                                                <td class="text-center">{ViewAllVehicle.Insurance_Name}</td>
-                                                <td class="text-center">{ViewAllVehicle.Air_Condition}</td>
-                                                <td class="text-center">{ViewAllVehicle.Eco_Test_Issued_Date}</td>
-                                                <td class="text-center">{ViewAllVehicle.Eco_Test_Expire_Date}</td>
-                                                <td class="text-center">{ViewAllVehicle.Fuel_Type}</td>
-                                                <td class="text-center">{ViewAllVehicle.Vehicle_Owner}</td>
-                                                <td class="text-center">{ViewAllVehicle.Owner_Name}</td>
-                                                <td class="text-center">{ViewAllVehicle.NIC}</td>
-                                                <td class="text-center">{ViewAllVehicle.Address}</td>
-                                                <td class="text-center">{ViewAllVehicle.Contact_No}</td>
-                                                <td class="text-center">{ViewAllVehicle.Date}</td>
+                                                <td class="text-center">{AllReceivedTeaLeaves.productName}</td>
+                                                <td class="text-center">{AllReceivedTeaLeaves.type}</td>
+                                                <td class="text-center">{AllReceivedTeaLeaves.quantity}</td>
+                                                <td class="text-center">{AllReceivedTeaLeaves.weight}</td>
+                                                <td class="text-center">{AllReceivedTeaLeaves.status}</td>
+                                                <td class="text-center">{AllReceivedTeaLeaves.date}</td>
                                                 
                                                 
                                                     <td class="text-center ">
-                                                        <HiPencilSquare class="tbl-Action-icon mr-3" size="25px" color="green" onClick={() => openModalUpdate(ViewAllVehicle)}/>
-                                                        <HiOutlineTrash class="tbl-Action-icon" size="25px" color="red" onClick={() => openModalDelete(ViewAllVehicle)}/>
+                                                        <HiPencilSquare class="tbl-Action-icon mr-3" size="25px" color="green" onClick={() => openModalUpdate(AllReceivedTeaLeaves)}/>
+                                                        <HiOutlineTrash class="tbl-Action-icon" size="25px" color="red" onClick={() => openModalDelete(AllReceivedTeaLeaves)}/>
                                                     </td>
                                                 
                                             </tr>
@@ -352,7 +327,7 @@ function ViewAllVehicle() {
 
                                 <div className="row">
                                     <div className="col -6">
-                                        <button type="submit" className="btn btn-delete" onClick={() => { deletevehicle(modalDataDelete); }}>
+                                        <button type="submit" className="btn btn-delete" onClick={() => { deleteRental(modalDataDelete); }}>
                                             Confirm
                                         </button>
                                     </div>
@@ -366,17 +341,17 @@ function ViewAllVehicle() {
                         </Modal>
 
                         {/* modal for update the data of vehicle  */}
-                        <Modal
+                        {/* <Modal
                             show={modalUpdate}
                             onHide={() => setModalUpdate(false)}
                             size="lg"
                             aria-labelledby="contained-modal-title-vcenter"
                             centered>
-                            <UpdateVehicleModal
+                            <UpdateallocatingModal
                                 data={modalDataUpdate}
                                 onHide={() => setModalUpdate(false)}
                             />
-                        </Modal>
+                        </Modal> */}
                     </div>
                 </div>
             </div>
@@ -397,7 +372,7 @@ function ViewAllVehicle() {
 
 
 
-export default ViewAllVehicle;
+export default ViewAllReceivedTeaLeaves;
 
 
 

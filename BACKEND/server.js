@@ -25,18 +25,27 @@ const connection = mongoose.connection;
  })
 
 
+const productRouter = require("./routes/products.js");
+app.use("/product",productRouter);
+
+const supplierRouter = require("./routes/suppliers.js");
+app.use("/supplier",supplierRouter);
+
+
+
 const allocatingRouter = require("./routes/allocatings.js");
-
-
 app.use("/allocating",allocatingRouter);
 
 const equipmentRouter = require("./routes/equipments.js");
-
 app.use("/equipment",equipmentRouter);
 
 const monitorRouter = require("./routes/monitors.js");
-
 app.use("/monitor",monitorRouter);
+
+
+// const monitorRouter = require("./routes/monitors.js");
+
+// app.use("/monitor",monitorRouter);
 
 const employeeRouter= require("./routes/employees.js");
 app.use("/employee",employeeRouter);
@@ -44,8 +53,16 @@ app.use("/employee",employeeRouter);
 const performanceRouter= require("./routes/performances.js");
 app.use("/performance",performanceRouter);
 
+
+
 const vehicleRouter = require("./routes/vehicles.js");
 app.use("/vehicle", vehicleRouter);
+
+const AllocationRouter = require("./routes/allocations.js");
+app.use("/allocation", AllocationRouter);
+
+const MaintenanceRouter = require("./routes/maintenances.js");
+app.use("/maintenance", MaintenanceRouter);
 
 
 

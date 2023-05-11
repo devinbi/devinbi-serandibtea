@@ -7,13 +7,13 @@ import { AiOutlineBars } from 'react-icons/ai';
 import { HiPencilSquare } from "react-icons/hi2";
 import { HiOutlineTrash } from "react-icons/hi2";
 import Swal from 'sweetalert2'
-import TestModal from './ViewAllVehicle';
-import UpdateVehicleModal from './updateVehicle';
+import TestModal from './ViewAllMaintenance';
+import UpdateMaintenanceModal from './updateMaintenance';
 
 
 
 
-function ViewAllVehicle() {
+function ViewAllMaintenance() {
 
     // important to slide navigatebar
     const [isSidebarOpen, setIsSidebarOpen] = useState(false); 
@@ -23,7 +23,7 @@ function ViewAllVehicle() {
 
 
 
-    const [ViewAllVehicle, setViewAllVehicle] = useState([]);
+    const [ViewAllMaintenance, setViewAllMaintenance] = useState([]);
  
     const [modalData, setData] = useState([]);
     const [modalShow, setModalShow] = useState(false);
@@ -37,11 +37,11 @@ function ViewAllVehicle() {
 
     useEffect(() => {
 
-        function getAllVehicle() {
-            axios.get("http://localhost:8070/Vehicle/viewVehicle").then((res) => {
+        function getAllMaintenance() {
+            axios.get("http://localhost:8070/maintenance/viewMaintenance").then((res) => {
 
 
-            setViewAllVehicle(res.data.reverse());
+            setViewAllMaintenance(res.data.reverse());
 
                 //console.log("Data recieved");
 
@@ -60,15 +60,15 @@ function ViewAllVehicle() {
 
         }
 
-        getAllVehicle();
+        getAllMaintenance();
 
     }, []);
 
-    const deletevehicle = async (data) => {
+    const deletemaintenance = async (data) => {
         console.log("----------------",data._id);
         
         // console.log("modalDataDelete.fyiff",modalDataDelete);
-        const value = axios.delete(`http://localhost:8070/Vehicle/deleteVehicle/${data._id}`);
+        const value = axios.delete(`http://localhost:8070/maintenance/deleteMaintenance/${data._id}`);
         console.log("deleted", value);
         if (value) {
             console.log("Value",value.data);
@@ -76,7 +76,7 @@ function ViewAllVehicle() {
             // window.""location.replace("/viewReservation");
             Swal.fire({
                 title: 'Success!',
-                text: 'Permenantly deleted the vehivle & owner details successfully !!',
+                text: 'Permenantly deleted the vehicle maintenance details successfully !!',
                 icon: 'success',
                 showConfirmButton: false,
                 timer: 2000
@@ -88,8 +88,8 @@ function ViewAllVehicle() {
         
     }
 
-    const openModal = (ViewAllVehicle) => {
-        setData(ViewAllVehicle);
+    const openModal = (ViewAllMaintenance) => {
+        setData(ViewAllMaintenance);
         handleViewOnClick();
     }
 
@@ -245,7 +245,7 @@ function ViewAllVehicle() {
 
                             <div class="col">
                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-uppercase headerNameFont" style={{backgroundColor: "#658A4E", color: 'white', }}>
-                                    <h3 className="topic text-center mt-3 mb-3 pt-3 pb-3"  >View All Vehicle & Owner details</h3>
+                                    <h3 className="topic text-center mt-3 mb-3 pt-3 pb-3"  >View Vehicle Maintenance Details</h3>
                                 </div>
                             </div>
 
@@ -270,59 +270,38 @@ function ViewAllVehicle() {
                             <table class="table table-hover">
                                 <thead class="">
                                     <tr style={{backgroundColor: "#527449" , color:"white"}} >
+            Vehicle_ID,
                                             <th class="text-center">Vehicle ID</th>
-                                            <th class="text-center">Vehicle Type</th>
-                                            <th class="text-center">Vehicle Brand</th>
-                                            <th class="text-center">Vehicle Model</th>
                                             <th class="text-center">Vehicle Registration Number</th>
-                                            <th class="text-center">Current Mileage</th>
-                                            <th class="text-center">Insurance Type</th>
-                                            <th class="text-center">Insurance Name</th>
-                                            <th class="text-center">Air Condition</th>
-                                            <th class="text-center">Eco Test Issued Date</th>
-                                            <th class="text-center">Eco Test Expire Date</th>
-                                            <th class="text-center">Fuel Type</th>
-                                            <th class="text-center">Vehicle Owner</th>
-                                            <th class="text-center">Owner Name</th>
-                                            <th class="text-center">NIC</th>
-                                            <th class="text-center">Address</th>
-                                            <th class="text-center">Contact Number</th>
+                                            <th class="text-center">Issue</th>
+                                            <th class="text-center">Status</th>
+                                            <th class="text-center">Description</th>
+                                            <th class="text-center">Maintenance Cost</th>
                                             <th class="text-center">Date</th>
                                             <th class="text-center">Action</th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
-                                    {ViewAllVehicle.map((ViewAllVehicle) => {
+                                    {ViewAllMaintenance.map((ViewAllMaintenance) => {
 
                                         return (
                                             <tr>
                                                 {/* <td onClick={() => openModal(AllReceivedTeaLeaves)} data-toggle-1="tooltip" data-placement="right" title="Click to view details" className="view-td">
                                                     {AllReceivedTeaLeaves.supplierid}
                                                 </td> */}
-                                                <td class="text-center">{ViewAllVehicle.Vehicle_ID}</td>
-                                                <td class="text-center">{ViewAllVehicle.Vehicle_Type}</td>
-                                                <td class="text-center">{ViewAllVehicle.Vehicle_Brand}</td>
-                                                <td class="text-center">{ViewAllVehicle.Vehicle_Model}</td>
-                                                <td class="text-center">{ViewAllVehicle.Vehicle_Registration_No}</td>
-                                                <td class="text-center">{ViewAllVehicle.Current_Mileage}</td>
-                                                <td class="text-center">{ViewAllVehicle.Insurance_Type}</td>
-                                                <td class="text-center">{ViewAllVehicle.Insurance_Name}</td>
-                                                <td class="text-center">{ViewAllVehicle.Air_Condition}</td>
-                                                <td class="text-center">{ViewAllVehicle.Eco_Test_Issued_Date}</td>
-                                                <td class="text-center">{ViewAllVehicle.Eco_Test_Expire_Date}</td>
-                                                <td class="text-center">{ViewAllVehicle.Fuel_Type}</td>
-                                                <td class="text-center">{ViewAllVehicle.Vehicle_Owner}</td>
-                                                <td class="text-center">{ViewAllVehicle.Owner_Name}</td>
-                                                <td class="text-center">{ViewAllVehicle.NIC}</td>
-                                                <td class="text-center">{ViewAllVehicle.Address}</td>
-                                                <td class="text-center">{ViewAllVehicle.Contact_No}</td>
-                                                <td class="text-center">{ViewAllVehicle.Date}</td>
+                                                <td class="text-center">{ViewAllMaintenance.Vehicle_ID}</td>
+                                                <td class="text-center">{ViewAllMaintenance.Vehicle_Reg_NO}</td>
+                                                <td class="text-center">{ViewAllMaintenance.Issue}</td>
+                                                <td class="text-center">{ViewAllMaintenance.Status}</td>
+                                                <td class="text-center">{ViewAllMaintenance.Description}</td>
+                                                <td class="text-center">{ViewAllMaintenance.MaintainCost}</td>
+                                                <td class="text-center">{ViewAllMaintenance.Date}</td>
                                                 
                                                 
                                                     <td class="text-center ">
-                                                        <HiPencilSquare class="tbl-Action-icon mr-3" size="25px" color="green" onClick={() => openModalUpdate(ViewAllVehicle)}/>
-                                                        <HiOutlineTrash class="tbl-Action-icon" size="25px" color="red" onClick={() => openModalDelete(ViewAllVehicle)}/>
+                                                        <HiPencilSquare class="tbl-Action-icon mr-3" size="25px" color="green" onClick={() => openModalUpdate(ViewAllMaintenance)}/>
+                                                        <HiOutlineTrash class="tbl-Action-icon" size="25px" color="red" onClick={() => openModalDelete(ViewAllMaintenance)}/>
                                                     </td>
                                                 
                                             </tr>
@@ -352,7 +331,7 @@ function ViewAllVehicle() {
 
                                 <div className="row">
                                     <div className="col -6">
-                                        <button type="submit" className="btn btn-delete" onClick={() => { deletevehicle(modalDataDelete); }}>
+                                        <button type="submit" className="btn btn-delete" onClick={() => { deletemaintenance(modalDataDelete); }}>
                                             Confirm
                                         </button>
                                     </div>
@@ -372,7 +351,7 @@ function ViewAllVehicle() {
                             size="lg"
                             aria-labelledby="contained-modal-title-vcenter"
                             centered>
-                            <UpdateVehicleModal
+                            <UpdateMaintenanceModal
                                 data={modalDataUpdate}
                                 onHide={() => setModalUpdate(false)}
                             />
@@ -397,7 +376,7 @@ function ViewAllVehicle() {
 
 
 
-export default ViewAllVehicle;
+export default ViewAllMaintenance;
 
 
 

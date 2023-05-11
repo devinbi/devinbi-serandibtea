@@ -8,15 +8,6 @@ body {
     background: #fafafa;
 }
 
-p {
-    font-family: 'Poppins', sans-serif;
-    text-align: center;
-    font-size: 1.8em;
-    font-weight: 300;
-    line-height: 1.7em;
-    color: #999;
-    border-bottom: 1px solid #0b4b1b;
-}
 
 a,
 a:hover,
@@ -101,15 +92,17 @@ a:focus {
 #sidebar ul li a:hover {
     
     color: #000000;
-    background-image: linear-gradient(315deg, #52a781 2%, #6fccad 74%);
+    background-image: linear-gradient(315deg, #1ca055 50%, #104126 100%);
+    font-weight: 900;
+    /* background-image: linear-gradient(315deg, #48a88a 0%, #0a854e 74%); */
 }
 
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
     border: 2px solid #0b4b1b;
     color: #fff;
-    background-image: linear-gradient(315deg, #48a88a 0%, #097042 74%);
-    transition: all 1.0s;
+    background-image: linear-gradient(147deg, #1ca055 0%, #0e552e 74%);
+    transition: all 0.5s;
 }
 
 a[data-toggle="collapse"] {
@@ -125,10 +118,13 @@ a[data-toggle="collapse"] {
 }
 
 ul ul a {
-    font-size: 15px !important;
+    font-size: 16px !important;
     padding-left: 40px !important;
     background: #527449;
     transition: all 1.0s;
+}
+ul ul a:hover{
+    font-size: 17px !important;
     
 }
 
@@ -205,11 +201,11 @@ a.article:hover {
 
 
 
-span{
+.see-more-icon{
     position: fixed;
-    margin-left: -10px;
+    margin-left: 10px;
     cursor: pointer;
-    font-size: 50px;
+    font-size: 40px;
 } 
 
 /* ---------------------------------------------------

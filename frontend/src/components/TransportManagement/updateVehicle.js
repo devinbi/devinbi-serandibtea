@@ -138,7 +138,7 @@ function UpdateVehicleModal(Vehicle) {
 
                                 <div class=" row ml-1">
                                     <div class="col-6">
-                                        <label class="form-label-V mt-2" for="RegNo">Equipment ID </label>
+                                        <label class="form-label-V mt-2" for="RegNo">Vehicle ID </label>
                                     </div>
                                     <div class="col-5">
                                         <input

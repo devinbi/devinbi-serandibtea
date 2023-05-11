@@ -288,7 +288,18 @@ router.route("/searchV/:search").get(async (req, res) => {
 
 })
 
+//searh records
+router.route("/getExpire").get(async (req, res) => {
 
+    // Current date: September 29, 2022
+const date = new Date();
+
+date.setDate(date.getDate() + 30);
+
+// New date: August 30, 2022
+console.log(date);
+
+})
 
 
 
