@@ -355,7 +355,7 @@
   /*css for buttons*/
   // save
   .btn-ok1{
-  background-image: linear-gradient(315deg, #48a88a 0%, #0a854e 74%);
+    background-image: linear-gradient(147deg, #2b975a 0%, #225c3d 74%);
   color: white;
   height: 45px;
   width: 180px;
@@ -378,23 +378,37 @@
   }
   
   .btn-reset {
-    background-color: #ba0d0d;
+    background-image: linear-gradient(147deg, #990000 0%, #ff0000 74%);
     color: white;
     width: 200px;
     font-size: 1.1rem;
     border-radius: 0.5rem;
+    border: none;
     box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2),
       0px 0px 10px 0px rgba(0, 0, 0, 0.19);
   }
+  .btn-reset:hover{
+    background-image: linear-gradient(315deg, #990000 0%, #ff0000 74%);
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: rgb(0, 0, 0);
+  }
   
   .btn-delete {
-    background-color: #db3643;
+    background-image: linear-gradient(315deg, #438f77 0%, #0d613b 74%);
     color: white;
     width: 200px;
     font-size: 1.1rem;
     border-radius: 0.5rem;
+    border: none;
     box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2),
       0px 0px 10px 0px rgba(0, 0, 0, 0.19);
+  }
+  .btn-delete:hover{
+    background-image: linear-gradient(315deg, #0d613b 0%, #438f77 74%);
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: rgb(0, 0, 0);
   }
   
   .btn-download {
@@ -407,6 +421,14 @@
     border-radius: 0.5rem;
     box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2),
       0px 0px 10px 0px rgba(0, 0, 0, 0.19);
+  }
+
+  .btn-logout{
+    font-size: 1.1em;
+  }
+  .btn-logout button{
+    color:#000000;
+    font-size: 22px;
   }
   
   /*hasani*/
@@ -540,6 +562,7 @@
     box-shadow: 0px 0px 10px 2px rgba(137, 6, 6, 0.2),
       0px 0px 10px 0px rgba(0, 0, 0, 0.19);
   }
+
   .table-emp2 {
     position:relative;
     margin: 35px 35px 30px 35px;
@@ -549,17 +572,25 @@
     box-shadow: 0px 0px 10px 2px rgba(95, 94, 94, 0.2),
       0px 0px 10px 0px rgba(100, 100, 100, 0.19);
   }
-
   .table-emp1 {
     position:relative;
-    margin: 0px 0px 30px 0px;
-    padding: 5px;
+    margin: 10px 0px 30px 0px;
     width: auto;
-    border-radius: 0.5rem;
-    box-shadow: 0px 0px 10px 2px rgba(95, 94, 94, 0.2),
-      0px 0px 10px 0px rgba(100, 100, 100, 0.19);
+    box-shadow: 0px 0px 10px 1px #45be96;
+    border-width: 5px;
+    border-style: solid;
+    border-image: linear-gradient(
+      60deg,
+      #f79533,
+      #f37055,
+      #ef4e7b,
+      #a166ab,
+      #5073b8,
+      #1098ad,
+      #07b39b,
+      #6fba82
+    ) 1 / 0.1rem;
   }
-  
   .table-head {
     margin-bottom: 1rem;
     padding: 0 1rem 0 1rem;
@@ -800,4 +831,12 @@
     border-radius: 100%;
     opacity: 0.7;
   }
-  
+
+  // IN Table 
+  // Confirm Deletion Pop-Up Message
+  .dlt-confirm {
+    font-family: 'Poppins', sans-serif;
+    text-align:left;
+    font-size: 1.2em;
+    color: #08442b;
+  }

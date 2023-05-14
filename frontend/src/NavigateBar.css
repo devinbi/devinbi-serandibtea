@@ -8,15 +8,6 @@ body {
     background: #fafafa;
 }
 
-p {
-    font-family: 'Poppins', sans-serif;
-    text-align: center;
-    font-size: 1.8em;
-    font-weight: 300;
-    line-height: 1.7em;
-    color: #999;
-    border-bottom: 1px solid #0b4b1b;
-}
 
 a,
 a:hover,
@@ -32,7 +23,7 @@ a:focus {
     background: #fff;
     border: none;
     border-radius: 0;
-    /* margin-bottom: 40px; */
+    margin-bottom: 40px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -42,7 +33,7 @@ a:focus {
     width: 100%;
     height: 1px;
     border-bottom: 1px dashed #ddd;
-    /* margin: 40px 0; */
+    margin: 40px 0;
 }
 
 /* ---------------------------------------------------
@@ -65,7 +56,7 @@ a:focus {
 }
 
 #sidebar.active {
-    /* margin-left: -320px; */
+    margin-left: -320px;
 }
 
 #sidebar .sidebar-header {
@@ -74,7 +65,7 @@ a:focus {
     border-bottom: 3px solid #0b4b1b;
 }
 #sidebar .sidebar-header .logo img{
-    /* margin-left: 70px; */
+    margin-left: 70px;
     width: 110px;
     height: 120px;
   }
@@ -101,7 +92,8 @@ a:focus {
 #sidebar ul li a:hover {
     
     color: #000000;
-    background-image: linear-gradient(315deg, #0a854e 0%, #6fccad 80%);
+    background-image: linear-gradient(315deg, #1ca055 50%, #104126 100%);
+    font-weight: 900;
     /* background-image: linear-gradient(315deg, #48a88a 0%, #0a854e 74%); */
 }
 
@@ -109,8 +101,8 @@ a:focus {
 a[aria-expanded="true"] {
     border: 2px solid #0b4b1b;
     color: #fff;
-    background-image: linear-gradient(315deg, #48a88a 0%, #097042 74%);
-    transition: all 1.0s;
+    background-image: linear-gradient(147deg, #1ca055 0%, #0e552e 74%);
+    transition: all 0.5s;
 }
 
 a[data-toggle="collapse"] {
@@ -126,10 +118,13 @@ a[data-toggle="collapse"] {
 }
 
 ul ul a {
-    font-size: 15px !important;
+    font-size: 16px !important;
     padding-left: 40px !important;
     background: #527449;
     transition: all 1.0s;
+}
+ul ul a:hover{
+    font-size: 17px !important;
     
 }
 
@@ -142,7 +137,7 @@ ul.CTAs a {
     font-size: 0.9em !important;
     display: block;
     border-radius: 5px;
-    /* margin-bottom: 5px; */
+    margin-bottom: 5px;
 }
 
 a.download {
@@ -161,7 +156,7 @@ a.article:hover {
 
 .logout-button {
     padding: 0px 0px;
-    /* margin: 40px 220px ; */
+    margin: 40px 220px ;
     background-color: #658A4E;
     color: #fff;
     font-size: 1.2em;
@@ -206,11 +201,11 @@ a.article:hover {
 
 
 
-span{
+.see-more-icon{
     position: fixed;
-    /* margin-left: -10px; */
+    margin-left: 10px;
     cursor: pointer;
-    font-size: 50px;
+    font-size: 40px;
 } 
 
 /* ---------------------------------------------------
@@ -219,10 +214,10 @@ span{
 
 @media (max-width: 768px) {
     #sidebar {
-        /* margin-left: -250px; */
+        margin-left: -250px;
     }
     #sidebar.active {
-        /* margin-left: 0; */
+        margin-left: 0;
     }
     #sidebarCollapse span {
         display: none;

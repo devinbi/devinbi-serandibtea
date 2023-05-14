@@ -11,12 +11,16 @@ import TestModal from './viewallocating';
 
 import UpdateallocatingModal from "./updateallocating";
 import Header from '../../Header';
-
+import { FiLogOut } from 'react-icons/fi';
+import { AiOutlineBars } from 'react-icons/ai';
 
 
 function Viewallocating() {
 
     // const [search, setSearch] = useState("");
+
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false); 
+    const handleSidebarToggle = () => { setIsSidebarOpen(!isSidebarOpen); };
 
     const [allocatings, setAllocating] = useState([]);
 
@@ -138,6 +142,130 @@ function Viewallocating() {
    
 
     return (
+        <div class="wrapper">
+        
+        <nav id="sidebar" className={isSidebarOpen ? "active" : ""}>
+            <div class="sidebar-header">
+                <h3></h3>
+                <div class="logo">
+                {/* <img src={require('./images/logo1.png')} alt="logo" /> */}
+                <img src="/images/logo1.png" alt="logo"/>
+                
+                </div>
+            </div>
+
+            <ul class="list-unstyled components">
+                {/* <p>SIDE NAVIGATE BAR</p> */}
+                <li >
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Inventory Management</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="/AddSupplier">Add Tea Leaves Quantity</a>
+                        </li>
+                        <li>
+                            <a href="/ViewAllReceivedTeaLeaves">View All Received Tea Leaves</a>
+                        </li>
+                        <li>
+                            <a href="/AddTransferredproduct">Add Transferred product</a>
+                        </li>
+                        <li>
+                            <a href="#">View Total product</a>
+                        </li>
+                        <li>
+                            <a href="#">View Rejected Product</a>
+                        </li>
+                    </ul>
+                </li>
+                
+                <li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Equipment Management</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a href="/addequipment">Add Equipment Details</a>
+                        </li>
+                        <li>
+                            <a href="#">View Equipment Details</a>
+                        </li>
+                        <li>
+                            <a href="#">Allocate Equipment</a>
+                        </li>
+                        <li>
+                            <a href="/allocating/viewallocating">View Allocate Details</a>
+                        </li>
+                        <li>
+                            <a href="#">Monitoring Equipment</a>
+                        </li>
+                        <li>
+                            <a href="#">View Performance Details</a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li>
+                    <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Employee Management</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu1">
+                        <li>
+                            <a href="#">Add Employees</a>
+                        </li>
+                        <li>
+                            <a href="#">View Employees</a>
+                        </li>
+                        <li>
+                            <a href="#">Add Performance</a>
+                        </li>
+                        <li>
+                            <a href="#">View Performance</a>
+                        </li>
+                        <li>
+                            <a href="#">High Performance list</a>
+                        </li>
+                        <li>
+                            <a href="#">Resigned Employees</a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li>
+                    <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle ">Equipment Management</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu2">
+                        <li>
+                            <a href="#">Add Equipment Details</a>
+                        </li>
+                        <li>
+                            <a href="#">View Equipment Details</a>
+                        </li>
+                        <li>
+                            <a href="#">Allocate Equipment</a>
+                        </li>
+                        <li>
+                            <a href="#">View Allocate Details</a>
+                        </li>
+                        <li>
+                            <a href="#">Monitoring Equipment</a>
+                        </li>
+                        <li>
+                            <a href="#">View Performance Details</a>
+                        </li>
+
+                    </ul>
+                </li>
+            </ul>
+            
+            
+            <button class="logout-button"><FiLogOut />Logout</button>
+
+
+        </nav>
+
+    
+        <div id="content">
+
+            
+                <div class="see-more-icon">
+                        <span onClick={handleSidebarToggle}> <AiOutlineBars /></span> 
+                </div>
+
+        
 
         <div className="page-component-body">
             {/* <Header/> */}
@@ -267,7 +395,8 @@ function Viewallocating() {
 
         </div>
 
-
+</div>
+</div>
     )
 }
 
