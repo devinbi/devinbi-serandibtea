@@ -227,6 +227,7 @@ function Viewequipment() {
                     </ul>
                 </li>
                 <li>
+                    
                     <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle ">Equipment Management</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu2">
                         <li>
@@ -397,3 +398,5 @@ function Viewequipment() {
 }
 
 export default Viewequipment;
+
+//ee
