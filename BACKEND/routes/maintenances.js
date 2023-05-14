@@ -147,5 +147,19 @@ try{
 
 })
 
+router.route("/filter").get((req, res) => {
+    // let performanceID = req.params.id;
+    Maintenance.find({
+        MaintainCost: { $gt: 100000 }
+     })
+     .then((Maintenance) => {
+       res.json(Maintenance)
+     })
+     .catch((err) => {
+       console.log(err);
+       res.status(500).send({ status: "Error with fetching data", error: err.message })
+     })
+   })
+
 
 module.exports = router;
