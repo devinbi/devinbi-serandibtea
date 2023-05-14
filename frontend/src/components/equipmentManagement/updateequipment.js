@@ -23,7 +23,7 @@ function UpdateEquipmentModal(equipment) {
             setIntertek(equipment.data.intertek);
             setStatus(equipment.data.status);
             
-//rrr
+
 
         } catch {
             window.alert("something went wrong");
