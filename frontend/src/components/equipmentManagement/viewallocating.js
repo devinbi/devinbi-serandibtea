@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 import Swal from 'sweetalert2'
 import { HiPencilSquare } from "react-icons/hi2";
 import { HiOutlineTrash } from "react-icons/hi2";
-
+import "../../NavigateBar.css";
 
 import TestModal from './viewallocating';
 
