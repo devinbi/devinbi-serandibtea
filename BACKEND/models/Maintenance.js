@@ -28,7 +28,7 @@ const maintenanceSchema = new Schema({
     },
 
     MaintainCost : {
-        type : String,
+        type : Number,
         required:true
     },
 
