@@ -9,7 +9,7 @@ import { HiOutlineTrash } from "react-icons/hi2";
 import Swal from 'sweetalert2'
 import TestModal from './ViewAllReceivedTeaLeaves';
 
-import UpdateTransferredProductModal from './UpdateTransferredProduct';
+import UpdateUpdateReceivedTeaLeaves from './UpdateReceivedTeaLeaves';
 
 
 
@@ -347,7 +347,7 @@ function ViewAllReceivedTeaLeaves() {
                             size="lg"
                             aria-labelledby="contained-modal-title-vcenter"
                             centered>
-                            <UpdateTransferredProductModal
+                            <UpdateUpdateReceivedTeaLeaves
                                 data={modalDataUpdate}
                                 onHide={() => setModalUpdate(false)}
                             />

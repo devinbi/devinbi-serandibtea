@@ -5,50 +5,47 @@ import Swal from "sweetalert2";
 
 
 
-function UpdateTransferredProduct(product) {
+function UpdateReceivedTeaLeaves(receivedTeaLeaves) {
 
-    console.log("update modal dataaaaaa", product);
+    console.log("update modal dataaaaaa", receivedTeaLeaves);
 
     useEffect(() => {
         try {
 
-            setProductId(product.data.productId);
-            setProductName(product.data.productName);
-            setType(product.data.type);
-            setQuantity(product.data.quantity);
-            setWeight(product.data.weight);
-            setStatus(product.data.status);
-            setDate(product.data.date);
+            setSupplierId(receivedTeaLeaves.data.supplierid);
+            setSuppliername(receivedTeaLeaves.data.suppliername);
+            setWeight(receivedTeaLeaves.data.weight);
+            setMoistureContent(receivedTeaLeaves.data.moisture_content);
+            setRipeTeaLeaves(receivedTeaLeaves.data.ripe_tea_leaves);
+            setNetWeight(receivedTeaLeaves.data.net_weight);
 
         } catch {
             window.alert("something went wrong");
         }
-    }, [product.data]);
+    }, [receivedTeaLeaves.data]);
 
-    const [productId, setProductId] = useState("");
-    const [productName, setProductName] = useState("");
-    const [type, setType] = useState("");
-    const [quantity, setQuantity] = useState("");
+    const [supplierid, setSupplierId] = useState("");
+    const [suppliername, setSuppliername] = useState("");
     const [weight, setWeight] = useState("");
-    const [status, setStatus] = useState("");
-    const [date, setDate] = useState("");
+    const [moisture_content, setMoistureContent] = useState("");
+    const [ripe_tea_leaves, setRipeTeaLeaves] = useState("");
+    const [net_weight, setNetWeight] = useState("");
      
 
 
     function sendData (e){
         e.preventDefault();
 
-            const newproduct = {
-                productId,
-                productName,
-                type,
-                quantity,
+            const neweSupplier = {
+                supplierid,
+                suppliername,
                 weight,
-                status,
-                date
+                moisture_content,
+                ripe_tea_leaves,
+                net_weight
             }
 
-            axios.put(`http://localhost:8070/product/update/${product.data._id}`, newproduct)
+            axios.put(`http://localhost:8070/supplier/update/${receivedTeaLeaves.data._id}`, neweSupplier)
 
                 .then(() => {
                     Swal.fire({
@@ -59,10 +56,10 @@ function UpdateTransferredProduct(product) {
                         timer: 2000
                     }
                     ).then(() => {
-                        window.location.replace("ViewAllTransferredProduct");
+                        window.location.replace("ViewAllReceivedTeaLeaves");
 
                     })
-                    window.location.replace("ViewAllTransferredProduct");
+                    window.location.replace("ViewAllReceivedTeaLeaves");
 
                 }).catch((err) => {
                     const msgerr = err.response.data.status
@@ -76,12 +73,21 @@ function UpdateTransferredProduct(product) {
                 })
         
     }
+
+
+
+    useEffect(() => {
+
+        setNetWeight((weight ? Number(weight) : 0) - ((moisture_content? Number(moisture_content) : 0) + (ripe_tea_leaves ? Number(ripe_tea_leaves) : 0)));
+        console.log("performance", weight);
+
+    }, [weight, moisture_content, ripe_tea_leaves]);
   
            
   return (
         <div>
             <Modal.Header closeButton>
-                <Modal.Title>Product ID : {productId}</Modal.Title>
+                <Modal.Title>Supplier ID : {supplierid}</Modal.Title>
             </Modal.Header>
 
             <Modal.Body className="px-4 pt-4 pb-1">
@@ -102,43 +108,18 @@ function UpdateTransferredProduct(product) {
                                     <div class="row">
                                         <div class="col">
                                             <div class="form-floating mb-3">
-                                            <label for="VehicleBrand1">Product Name :</label>
+                                            <label for="VehicleBrand1">Supplier Name :</label>
                                             <input type="text" class="form-control" id="VehicleBrand1" name="VehicleBrand1" tabindex="1" required
-                                                value={productName}
+                                                value={suppliername}
                                                 onChange={(e) => {
-                                                    setProductName(e.target.value);
+                                                    setSuppliername(e.target.value);
                                                 }} />
                                             
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="form-floating mb-3">
-                                            <label for="VehicleBrand2">Type :</label>
-                                            <input type="text" class="form-control" id="VehicleBrand2" name="VehicleBrand2" tabindex="1" required
-                                                value={type}
-                                                onChange={(e) => {
-                                                    setType(e.target.value);
-                                                }} />
-                                            
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="form-floating mb-3">
-                                            <label for="VehicleBrand1">Quantity :</label>
-                                            <input type="text" class="form-control" id="VehicleBrand1" name="VehicleBrand1" tabindex="1" required
-                                                value={quantity}
-                                                onChange={(e) => {
-                                                    setQuantity(e.target.value);
-                                                }} />
-                                            
-                                            </div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="form-floating mb-3">
-                                            <label for="VehicleBrand2">Weight (Grams) :</label>
+                                            <label for="VehicleBrand2">Weight (Kilogram) :</label>
                                             <input type="text" class="form-control" id="VehicleBrand2" name="VehicleBrand2" tabindex="1" required
                                                 value={weight}
                                                 onChange={(e) => {
@@ -152,31 +133,35 @@ function UpdateTransferredProduct(product) {
                                     <div class="row">
                                         <div class="col">
                                             <div class="form-floating mb-3">
-                                                <label for="VehicleBrand1">Status :</label>
-                                                    <select
-                                                        value={status}
-                                                        id="vehType"
-                                                        className="form-control "
-                                                        onChange={(e) => {
-                                                            setStatus(e.target.value); // assign value
-                                                        }}
-                                                    >
-                                                        <option>Choose</option>
-                                                        <option id="car">Pending</option>
-                                                        <option id="van">Approved</option>
-                                                        <option id="bus">Rejected</option>
-                                                    </select>
+                                            <label for="VehicleBrand1">Moisture Content of the Tea Leaves (Kilogram) :</label>
+                                            <input type="text" class="form-control" id="VehicleBrand1" name="VehicleBrand1" tabindex="1" required
+                                                value={moisture_content}
+                                                onChange={(e) => {
+                                                    setMoistureContent(e.target.value);
+                                                }} />
                                             
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="form-floating mb-3">
-                                            <label for="VehicleBrand2">Date :</label>
+                                            <label for="VehicleBrand2">Ripe Tea Leaves (Kilogram) :</label>
                                             <input type="text" class="form-control" id="VehicleBrand2" name="VehicleBrand2" tabindex="1" required
-                                                value={date}
+                                                value={ripe_tea_leaves}
                                                 onChange={(e) => {
-                                                    setDate(e.target.value);
+                                                    setRipeTeaLeaves(e.target.value);
                                                 }} />
+                                            
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-floating mb-3">
+                                            <label for="VehicleBrand2">Net Weight :</label>
+                                            <input type="text" class="form-control" id="VehicleBrand2" name="VehicleBrand2" tabindex="1" disabled
+                                                value={net_weight}
+                                            />
                                             
                                             </div>
                                         </div>
@@ -201,7 +186,7 @@ function UpdateTransferredProduct(product) {
                                         </button>
                                     </div>
                                     <div className="col-6 text-right pr-5" >
-                                        <button type="reset" className="btn btn-reset" onClick={product.onHide}>
+                                        <button type="reset" className="btn btn-reset" onClick={receivedTeaLeaves.onHide}>
                                             Cancel
                                         </button>
                                     </div>
@@ -222,4 +207,4 @@ function UpdateTransferredProduct(product) {
                                   
 }                                                            
 
-export default UpdateTransferredProduct;
+export default UpdateReceivedTeaLeaves;
