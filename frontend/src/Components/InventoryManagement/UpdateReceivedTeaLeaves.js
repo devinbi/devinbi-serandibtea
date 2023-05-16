@@ -98,7 +98,7 @@ function UpdateReceivedTeaLeaves(receivedTeaLeaves) {
                             <form id="contact-form" class="form" action="#" method="POST" role="form" onSubmit={sendData}>
                                 <div class="col">
                                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-uppercase headerNameFont" style={{backgroundColor: "#658A4E", color: 'white', }}>
-                                        <h3 className="topic text-center mt-3 mb-3 pt-3 pb-3"  >Update Transferred Product Details</h3>
+                                        <h3 className="topic text-center mt-3 mb-3 pt-3 pb-3"  >Update Details of received tea leaves</h3>
                                     </div>
                                 </div>
 
