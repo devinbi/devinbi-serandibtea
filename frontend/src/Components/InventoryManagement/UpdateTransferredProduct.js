@@ -59,10 +59,10 @@ function UpdateTransferredProduct(product) {
                         timer: 2000
                     }
                     ).then(() => {
-                        window.location.replace("/ViewAllReceivedTeaLeaves");
+                        window.location.replace("ViewAllTransferredProduct");
 
                     })
-                    window.location.replace("/ViewAllReceivedTeaLeaves");
+                    window.location.replace("ViewAllTransferredProduct");
 
                 }).catch((err) => {
                     const msgerr = err.response.data.status

@@ -77,13 +77,13 @@ function AddSupplier() {
                             <a href="/AddSupplier">Add Tea Leaves Quantity</a>
                         </li>
                         <li>
-                            <a href="/ViewAllReceivedTeaLeaves">View All Received Tea Leaves</a>
+                            <a href="ViewAllReceivedTeaLeaves">View All Received Tea Leaves</a>
                         </li>
                         <li>
                             <a href="/AddTransferredproduct">Add Transferred product</a>
                         </li>
                         <li>
-                            <a href="#">View Total product</a>
+                            <a href="ViewAllTransferredProduct">View All Transferred Product</a>
                         </li>
                         <li>
                             <a href="#">View Rejected Product</a>

@@ -9,6 +9,7 @@ import Equipmentreport from "./components/equipmentManagement/equipmentreport";
 import AddTransferredproduct from "./components/InventoryManagement/AddTransferredproduct";
 import AddSupplier from "./components/InventoryManagement/AddSupplier";
 import ViewAllTransferredProduct from "./components/InventoryManagement/ViewAllTransferredProduct";
+import ViewAllReceivedTeaLeaves from "./components/InventoryManagement/ViewAllReceivedTeaLeaves";
 
 
 
@@ -34,6 +35,7 @@ function App() {
           <Route path="/AddSupplier" element={<AddSupplier />}/>
           <Route path="/AddTransferredproduct" element={<AddTransferredproduct />}/>
           <Route path="/ViewAllTransferredProduct" element={<ViewAllTransferredProduct />}/>
+          <Route path="/ViewAllReceivedTeaLeaves" element={<ViewAllReceivedTeaLeaves />}/>
 
         </Routes>
       </BrowserRouter>
