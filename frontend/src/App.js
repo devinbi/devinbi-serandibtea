@@ -5,6 +5,7 @@ import Addmonitor from "./components/equipmentManagement/Addmonitor";
 import Viewmonitor from "./components/equipmentManagement/viewmonitor";
 import Viewallocating from "./components/equipmentManagement/viewallocating";
 import Equipmentreport from "./components/equipmentManagement/equipmentreport";
+import Home from "./components/Home"
 
 // import AddTransferredproduct from "./components/InventoryManagement/AddTransferredproduct";
 // import AddSupplier from "./components/InventoryManagement/AddSupplier";
@@ -29,6 +30,7 @@ function App() {
           <Route path="/viewmonitor" element={<Viewmonitor />}/>
           <Route path="/reporte" element={<Equipmentreport />}/>
           <Route path="/equipment/viewequipment" element={<Equipmentview />}/>
+          <Route path="/home" element={<Home />}/>
   
             
           {/* <Route path="/AddSupplier" element={<AddSupplier />}/>
