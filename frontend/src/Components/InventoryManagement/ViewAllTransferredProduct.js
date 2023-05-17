@@ -32,6 +32,8 @@ function ViewAllTransferredProduct() {
     const [modalDataDelete, setModalDataDelete] = useState([]);
     const [modalDeleteConfirm, setModalDeleteConfirm] = useState(false);
 
+    
+
     const [modalDataUpdate, setModalDataUpdate] = useState([]);
     const [modalUpdate, setModalUpdate] = useState(false);
 
@@ -67,6 +69,34 @@ function ViewAllTransferredProduct() {
 
     const deleteRental = async (data) => {
         console.log("----------------",data._id);
+
+
+        const productId = data.productId;
+        const productName = data.productName;
+        const type = data.type;
+        const quantity = data.quantity;
+        const weight = data.weight;
+        const status = data.status;
+        const date = data.date;
+    
+        const removedProducts = {
+            productId,
+            productName,
+            type,
+            quantity,
+            weight,
+            status,
+            date 
+        }
+        axios.post("http://localhost:8070/rejectedProduct/add",removedProducts).then((response)=>{
+        console.log(response)
+        }).catch((err)=>{
+        alert(err)
+        })
+
+
+
+        
         
         // console.log("modalDataDelete.fyiff",modalDataDelete);
         const value = axios.delete(`http://localhost:8070/product/delete/${data._id}`);
@@ -81,8 +111,8 @@ function ViewAllTransferredProduct() {
                 icon: 'success',
                 showConfirmButton: false,
                 timer: 2000
-            }
-            ).then(() => {
+            })
+            .then(() => {
                 window.location.reload();
             })
         }
@@ -144,7 +174,7 @@ function ViewAllTransferredProduct() {
                             <a href="ViewAllTransferredProduct">View All Transferred Product</a>
                         </li>
                         <li>
-                            <a href="#">View Rejected Product</a>
+                            <a href="RejectedProducts">View Rejected Product</a>
                         </li>
                     </ul>
                 </li>
