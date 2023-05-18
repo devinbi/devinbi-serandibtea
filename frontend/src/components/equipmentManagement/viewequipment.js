@@ -277,10 +277,10 @@ function Viewequipment() {
             </Modal>
 
 
-            <div className="table-emp2">
+            <div className="table-emp3">
                 <div class="row table-head mt-3">
                     <div class="col">
-                        <h3 className="float-left ">Equipment Details</h3>
+                        <h3 className="text-center ">Equipment Details</h3>
                     </div>
                 </div>
 

@@ -51,16 +51,38 @@ export  default function Addequipment(){
       
   console.log(newEquipment)
       axios.post("http://localhost:8070/equipment/add",newEquipment).then(()=>{
-          alert("Success");
-          window.location.reload()
+               
+      Swal.fire({
+        title: 'Success!',
+        text: 'Vehicle Details Added Succesfully',
+        icon: 'success',
+        showConfirmButton: false,
+        timer: 2000
+    }
+    ).then(() => {
+        window.location.replace("/equipment/viewequipment");
+
+    })
+
+
+
+}).catch((err) => {
+
+    const msgerr = err.response.data.status
+    Swal.fire({
+        icon: 'warning',
+        title: 'Oops...',
+        text: `${msgerr}`,
+        confirmButtonColor: '#1fc191',
+
+    })
+})
          
       
 
-      }).catch((err)=>{
-          alert(err);
-      })
+      
    
-    }
+      }
   }
 
   const formValidation = () => {//validate function
@@ -94,39 +116,42 @@ const validateRegNo = (event) => {
     const RegNo = event.target.value;
     if (VehRegex1.test(RegNo)) {
         setRegIsValid(true);
-        setRegMessage('Vehicle Registation Number looks good!');
+        setRegMessage('Equipment ID looks good!');
     } else if (VehRegex2.test(RegNo)) {
         setRegIsValid(true);
-        setRegMessage('Vehicle Registation Number looks good!');
+        setRegMessage('Equipment ID looks good!');
 
     }
     else {
         setRegIsValid(false);
-        setRegMessage('Please enter a valid Vehicle Registation Number !');
+        setRegMessage('Please enter a valid Equipment ID !');
     }
 };
 
 const [isnValid, setnIsValid] = useState(false);
 const [nmessage, setnMessage] = useState('');
 
-// const nRegex1 = /^[0-9][0-9][0-9][0-9]$/;
-const nRegex1 = /^[A-Z a-z]$/;
-// const Regex2 = /^ [A-Z]$/;
+
+const nRegex1 = /^[0-9]$/;
+const nRegex2 = /^[0-9][0-9][0-9]$/;
+
+
 
 const validaten = (event) => {
 
     const RegN = event.target.value;
     if (nRegex1.test(RegN)) {
-        setnIsValid(true);
-        setnMessage('Vehicle Registation Number looks good!');
-    
-    }else if (nRegex1.test(RegN)) {
-        setRegIsValid(true);
-        setnMessage('Vehicle Registation Number looks good!');
-    }
-    else {
         setnIsValid(false);
-        setnMessage('RR');
+        setnMessage('cannot enter numbers'); 
+    }
+    else if(nRegex2.test(RegN)) {
+        setnIsValid(false);
+        setnMessage('cannot enter numbers'); 
+    }
+
+    else {
+        setnIsValid(true);
+        setnMessage('Looks good');
     }
 }
 
@@ -359,8 +384,8 @@ const validaten = (event) => {
 
                             <div class="form mb-2">
                                 <label for="totalamount">Intertek</label>
-                                <input type="number" class="form-control" id="net_weight" placeholder="Enter Intertek verification number" required
-                                vonChange={(e)=>{
+                                <input type="number" class="form-control" id="net_weight" placeholder="Enter Intertek verification number"  required
+                                onChange={(e)=>{
                                     setIntertek(e.target.value);
                                 }}/>
                             </div>
@@ -372,6 +397,7 @@ const validaten = (event) => {
                                     setStatus(e.target.value);
                                 }} >
                                 <option id="manufacturing">Choose The Status</option>
+                                <option id="office use">Brand new</option>
                                 <option id="manufacturing">Replace equipment</option>
                                 <option id="office use">equipment idle</option>
                                 <option id="office use">under maintenance</option>

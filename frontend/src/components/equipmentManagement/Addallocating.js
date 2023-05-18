@@ -256,7 +256,7 @@ return(
                     <div class="container border-top " >
                         <div class="row">
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-uppercase headerNameFont" style={{backgroundColor: "#658A4E", color: 'white', }}>
-                                <h3 className="topic text-center mt-3 mb-3 "  >Tea Leaves Quantity Per Day</h3>
+                                <h3 className="topic text-center mt-3 mb-3 "  >Equipment Allocation</h3>
                             </div>
                         </div>
             
@@ -292,7 +292,7 @@ return(
                                         class="form-control formInput" 
                                         id="Address" 
                                         name="Address"
-                                        placeholder="Employee Address"
+                                        
                                         tabindex="2" 
                                         required
                                         onChange={(e)=>{
@@ -308,8 +308,8 @@ return(
                             </div>
 
                             <div class="form mb-2">
-                                <label for="totalamount"> Wattage </label>
-                                <input type="number" class="form-control formInput" id="production" placeholder="Enter Weight" required 
+                                <label for="totalamount">Equipment Wattage in watts</label>
+                                <input type="number" class="form-control formInput" id="production" placeholder="Enter number of watts" required 
                                 onChange={(e)=>{
                                     setWattage(e.target.value);
                                 }}/>
@@ -318,7 +318,7 @@ return(
                             
                             <div class="form mb-2">
                                 <label for="totalamount"> Hours</label> 
-                                <input type="number" class="form-control" id="totalamount" placeholder="Enter Moisture Content of the Tea Leaves" required
+                                <input type="number" class="form-control" id="totalamount" placeholder="Enter number of hours " required
                                 onChange={(e)=>{
                                     setHours(e.target.value);
                                 }}/>
