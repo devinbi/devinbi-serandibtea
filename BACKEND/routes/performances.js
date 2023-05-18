@@ -108,5 +108,26 @@ router.route("/filter").get((req, res) => {
    })
 
 
+   router.route("/search/:empID").get(async (req, res) => {
+
+    let employeeID = req.params.empID;
+    
+     try {
+        const responses = await performance.find({ 'employeeId': employeeID})
+        console.log(responses)
+    return res.status(200).send({ status: "Success", data: responses });
+    
+    
+    
+    } catch (error) {
+    
+         console.log("something went wrong!!");
+    
+         return { ok: flase };
+    
+     }
+    
+    })
+
 module.exports = router; 
 
