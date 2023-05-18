@@ -308,14 +308,37 @@ router.route("/getExpire").get(async (req, res) => {
                             $lte:yearAfterDays,
                         }             
     })
-    console.log(responses[0].Eco_Test_Expire_Date)
+    let resAray = [];
+    for(let i=0;i<responses.length;i++){
     var months_6_After = 6; 
-    var dateAfter_6_Months = new Date(responses[0].Eco_Test_Expire_Date.getFullYear(), responses[0].Eco_Test_Expire_Date.getMonth() - months_6_After, responses[0].Eco_Test_Expire_Date.getDate());
-    console.log(dateAfter_6_Months);
+    var dateAfter_6_Months = moment(new Date(responses[i].Eco_Test_Expire_Date.getFullYear(), responses[i].Eco_Test_Expire_Date.getMonth() - months_6_After, responses[i].Eco_Test_Expire_Date.getDate())).format("YYYY/MM/DD");
+
     var months_12_After = 12; 
-    var dateAfter_12_Months = new Date(responses[0].Eco_Test_Expire_Date.getFullYear(), responses[0].Eco_Test_Expire_Date.getMonth() - months_12_After, responses[0].Eco_Test_Expire_Date.getDate());
-    console.log(dateAfter_12_Months);
-    return res.status(200).send({ status: "Success", data: responses });
+    var dateAfter_12_Months = moment(new Date(responses[i].Eco_Test_Expire_Date.getFullYear(), responses[i].Eco_Test_Expire_Date.getMonth() - months_12_After, responses[i].Eco_Test_Expire_Date.getDate())).format("YYYY/MM/DD");
+
+    var dateToday = moment(new Date(today.getFullYear(), today.getMonth(), today.getDate())).format("YYYY/MM/DD")
+    var dateYesterday = moment(new Date(today.getFullYear(), today.getMonth(), today.getDate()-1)).format("YYYY/MM/DD")
+    var dateTomorrow = moment(new Date(today.getFullYear(), today.getMonth(), today.getDate()+1)).format("YYYY/MM/DD")
+    console.log(dateAfter_6_Months)
+
+    console.log(dateAfter_12_Months)
+    
+    console.log(responses[i])
+    if(dateAfter_12_Months === dateToday || dateAfter_12_Months === dateYesterday || dateAfter_12_Months === dateTomorrow){
+        resAray.push(responses[i]);
+        
+       
+    }
+    if(dateAfter_6_Months === dateToday || dateAfter_6_Months === dateYesterday || dateAfter_6_Months === dateTomorrow){
+        resAray.push(responses[i]);
+
+    }
+    
+    
+  
+    }
+    console.log(resAray)
+    return res.status(200).send({ status: "Success", data: resAray });
 
 
     
