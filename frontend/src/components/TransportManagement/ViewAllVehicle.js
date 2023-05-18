@@ -287,7 +287,6 @@ function ViewAllVehicle() {
                                             <th class="text-center">NIC</th>
                                             <th class="text-center">Address</th>
                                             <th class="text-center">Contact Number</th>
-                                            <th class="text-center">Reminder send count</th>
                                             <th class="text-center">Date</th>
                                             <th class="text-center">Action</th>
                                     </tr>
@@ -318,7 +317,6 @@ function ViewAllVehicle() {
                                                 <td class="text-center">{ViewAllVehicle.NIC}</td>
                                                 <td class="text-center">{ViewAllVehicle.Address}</td>
                                                 <td class="text-center">{ViewAllVehicle.Contact_No}</td>
-                                                <td class="text-center">{ViewAllVehicle.reminder_send_count}</td>
                                                 <td class="text-center">{ViewAllVehicle.Date}</td>
                                                 
                                                 
