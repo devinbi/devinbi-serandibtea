@@ -7,7 +7,7 @@ import { AiOutlineBars } from 'react-icons/ai';
 
 function AddEmployee() {
 
-    // important to slide navigatebars
+    // important to slide navigatebar
     const [isSidebarOpen, setIsSidebarOpen] = useState(false); 
     const handleSidebarToggle = () => { setIsSidebarOpen(!isSidebarOpen); };
 
@@ -23,10 +23,18 @@ function AddEmployee() {
   const [joiningDate,setJoiningDate] = useState("");
   const [telNo, setTelNo] = useState("");
 
+  const [RegNoErr, setRegNoErr] = useState("");
+  const [namNoErr, setnamErr] = useState("");
+
 
 
     function sendData(e){
         e.preventDefault();
+
+        const isValid = formValidation();
+        const nValid = nValidation();
+
+        if (isValid && nValid ) {
       
         const newEmployee = {
           employeeId,
@@ -49,9 +57,76 @@ function AddEmployee() {
         }).catch((err)=>{
             alert(err);
         })
+
+    }
      
     }
 
+    const formValidation = () => {//validate function
+
+        const RegNoErr = {}; //State
+        let isValid = true;
+        setRegNoErr(RegNoErr);//update error objects
+        return isValid;
+    
+    }
+    
+    const nValidation = () => {//validate function
+    
+        const namNoErr = {}; //State
+        let nValid = true;
+        setnamErr(namNoErr);//update error objects
+        return nValid;
+    
+    }
+    
+    const [isRegValid, setRegIsValid] = useState(false);
+    const [Regmessage, setRegMessage] = useState('');
+    
+    const VehRegex1 = /^[E][M][0-9][0-9][0-9]$/;
+    const VehRegex2 = /^[E][M][0-9][0-9][0-9]$/;
+    
+    const validateRegNo = (event) => {
+    
+        const RegNo = event.target.value;
+        if (VehRegex1.test(RegNo)) {
+            setRegIsValid(true);
+            setRegMessage('Employee Registation Number looks good!');
+        } else if (VehRegex2.test(RegNo)) {
+            setRegIsValid(true);
+            setRegMessage('Employee Registation Number looks good!');
+    
+        }
+        else {
+            setRegIsValid(false);
+            setRegMessage('Please enter a valid Employee Registation Number !');
+        }
+    };
+    
+    const [isnValid, setnIsValid] = useState(false);
+    const [nmessage, setnMessage] = useState('');
+    
+    // const nRegex1 = /^[0-9][0-9][0-9][0-9]$/;
+    const nRegex1 = /^[0-9]{9}[V]$/;
+    // const Regex2 = /^ [A-Z]$/;
+    
+    const validaten = (event) => {
+    
+        const RegN = event.target.value;
+        if (nRegex1.test(RegN)) {
+            setnIsValid(true);
+            setnMessage('Employee Registation Number looks good!');
+       
+        }else if (nRegex1.test(RegN)) {
+            setRegIsValid(true);
+            setnMessage('Employee Registation Number looks good!');
+        }
+        else {
+            setnIsValid(false);
+            setnMessage('Enter valid NIC number');
+        }
+    }
+    
 
     
 return(
@@ -176,8 +251,7 @@ return(
 
             
                 <div class="container-fluid">
-
-                        <span onClick={handleSidebarToggle}> <AiOutlineBars /></span> 
+                    <span onClick={handleSidebarToggle}> <AiOutlineBars /></span> 
                     
                 </div>
             
@@ -196,34 +270,59 @@ return(
                         <form class="form" onSubmit={sendData}>
                             <div class="form pt-5 mb-2">
                                     <label for="expenseid">Employee ID :</label>
-                                    <input type="text" class="form-control formInput" id="expenseid" pattern="[E][0-9]{4}" placeholder="Enter employee id"
+                                    <input type="text" class="form-control formInput" id="expenseid" placeholder="Enter employee id" required
                                     onChange={(e)=>{
                                         setEmployeeId(e.target.value);
+                                        validateRegNo(e);
                                     }}/>
                                 
-                            </div>
+                                <div className={`message ${isRegValid ? 'success' : 'error'}`}>
+                                                        {Regmessage}
+                                                    </div>
 
 
-                            <div class="form mb-2">
+
+                                                    {Object.keys(RegNoErr).map((key) => {
+                                                        // return<div style={{color :"red"}}>{RegNoErr[key]}</div>
+                                                    })}
+                                               
+                               
+                                            </div>
+
+
+                            
+
+                                <div class="form mb-2">
                                 <label for="totalamount">Name</label>
-                                <input type="text" class="form-control formInput" id="runtime" 
+                                <input type="text" class="form-control formInput" id="runtime" required
                                 onChange={(e)=>{
                                     setName(e.target.value);
                                 }}/>
 
                             </div>
                             <div class="form mb-2">
-                                <label for="totalamount">nic</label>
-                                <input type="text" class="form-control formInput" id="production" 
+                                <label for="totalamount">NIC</label>
+                                <input type="text" class="form-control formInput" id="production" required
                                 onChange={(e)=>{
                                     setNic(e.target.value);
+                                    validaten(e);
                                 }}/>
 
-                            </div>
+                            <div className={`message ${isnValid ? 'success' : 'error'}`}>
+                                                        {nmessage}
+                                                    </div>
+
+                                                    {Object.keys(namNoErr).map((key) => {
+                                                        // return<div style={{color :"red"}}>{RegNoErr[key]}</div>
+                                                    })}
+                                               
+                               
+                                            </div>
+
                             
                             <div class="form mb-2">
-                                <label for="totalamount">Birthday</label>
-                                <input type="text" class="form-control" id="totalamount" 
+                                <label for="totalamount">Birthdate</label>
+                                <input type="date" class="form-control" id="totalamount" required
                                 onChange={(e)=>{
                                     setBirthdate(e.target.value);
                                 }}/>
@@ -231,7 +330,7 @@ return(
                             </div>
                             <div class="form mb-2">
                                 <label for="totalamount">Gender</label>
-                                <select type="text" class="form-control" id="totalamount" 
+                                <select type="text" class="form-control" id="totalamount" required
                                  onChange={(e)=>{
                                     setGender(e.target.value);
                                 }}>
@@ -245,7 +344,7 @@ return(
 
                             <div class="form mb-2">
                                 <label for="totalamount">Marital Status</label>
-                                <select type="text" class="form-control" id="totalamount" 
+                                <select type="text" class="form-control" id="totalamount" required
                                  onChange={(e)=>{
                                     setMaritalStatus(e.target.value);
                                 }}>
@@ -258,8 +357,8 @@ return(
                             </div>
 
                             <div class="form mb-2">
-                                <label for="totalamount">No of Children:</label>
-                                <input type="text" class="form-control" id="totalamount" 
+                                <label for="totalamount">No of Children:</label> 
+                                <input type="text" class="form-control" id="totalamount" pattern="[0-9]" required
                                 onChange={(e)=>{
                                     setnoOfChildren(e.target.value);
                                 }}/>
@@ -268,7 +367,7 @@ return(
 
                             <div class="form mb-2">
                                 <label for="totalamount">Job Title:</label>
-                                <select type="text" class="form-control" id="totalamount" 
+                                <select type="text" class="form-control" id="totalamount" required
                                  onChange={(e)=>{
                                     setTitle(e.target.value);
                                 }}>
@@ -284,7 +383,7 @@ return(
 
                             <div class="form mb-2">
                                 <label for="totalamount">Joining Date:</label>
-                                <input type="text" class="form-control" id="totalamount" 
+                                <input type="date" class="form-control" id="totalamount" required
                                 onChange={(e)=>{
                                     setJoiningDate(e.target.value);
                                 }}/>
@@ -293,7 +392,7 @@ return(
 
                             <div class="form mb-2">
                                 <label for="totalamount">Contact Number:</label>
-                                <input type="text" class="form-control" id="totalamount" 
+                                <input type="text" class="form-control" id="totalamount" pattern="[0-9]{10}" required
                                 onChange={(e)=>{
                                     setTelNo(e.target.value);
                                 }}/>
