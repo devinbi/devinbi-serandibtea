@@ -32,7 +32,7 @@ function EcoTestExpireVehicles() {
         axios.get("http://localhost:8070/Vehicle/getExpire").then((res) => {
 
         console.log(res.data)
-        setEcoTestExpireVehiclesdata(res.data[0]);
+        setEcoTestExpireVehiclesdata(res.data);
 
             //console.log("Data recieved");
 
@@ -50,8 +50,8 @@ function EcoTestExpireVehicles() {
         })
 
     }
-    const openModal = (EcoTestExpireVehicles) => {
-        setData(EcoTestExpireVehicles);
+    const openModal = (EcoTestExpire) => {
+        setData(EcoTestExpire);
         handleViewOnClick();
     }
 
@@ -113,25 +113,25 @@ function EcoTestExpireVehicles() {
                    </thead>
 
                     <tbody>
-                        {EcoTestExpire.map((EcoTestExpireVehicles) => {
+                        {EcoTestExpire.map((EcoTestExpire) => {
 
                             return (
                                 <tr>
-                                     <td onClick={() => openModal(EcoTestExpireVehicles)} data-toggle="tooltip" data-placement="right" title="Click to view details" className="view-td" class="text-center">
-                                        {EcoTestExpireVehicles.employeeId}
+                                     <td onClick={() => openModal(EcoTestExpire)} data-toggle="tooltip" data-placement="right" title="Click to view details" className="view-td" class="text-center">
+                                        {EcoTestExpire.employeeId}
                                     </td>
 
                                   
-                                    <td class="text-center">{EcoTestExpireVehicles.Vehicle_ID}</td>
-                                    <td class="text-center">{EcoTestExpireVehicles.Vehicle_Registration_No}</td>
-                                    <td class="text-center">{EcoTestExpireVehicles.Eco_Test_Issued_Date}</td>
-                                    <td class="text-center">{EcoTestExpireVehicles.Eco_Test_Expire_Date}</td>
-                                    <td class="text-center">{EcoTestExpireVehicles.Fuel_Type}</td>
-                                    <td class="text-center">{EcoTestExpireVehicles.Vehicle_Owner}</td>
-                                    <td class="text-center">{EcoTestExpireVehicles.Owner_Name}</td>
-                                    <td class="text-center">{EcoTestExpireVehicles.NIC}</td>
-                                    <td class="text-center">{EcoTestExpireVehicles.Contact_No}</td>
-                                    <td class="text-center">{EcoTestExpireVehicles.Owner_Name}</td>
+                                    <td class="text-center">{EcoTestExpire.Vehicle_ID}</td>
+                                    <td class="text-center">{EcoTestExpire.Vehicle_Registration_No}</td>
+                                    <td class="text-center">{EcoTestExpire.Eco_Test_Issued_Date}</td>
+                                    <td class="text-center">{EcoTestExpire.Eco_Test_Expire_Date}</td>
+                                    <td class="text-center">{EcoTestExpire.Fuel_Type}</td>
+                                    <td class="text-center">{EcoTestExpire.Vehicle_Owner}</td>
+                                    <td class="text-center">{EcoTestExpire.Owner_Name}</td>
+                                    <td class="text-center">{EcoTestExpire.NIC}</td>
+                                    <td class="text-center">{EcoTestExpire.Contact_No}</td>
+                                    <td class="text-center">{EcoTestExpire.Owner_Name}</td>
                                 </tr>
                             );
                         })}
