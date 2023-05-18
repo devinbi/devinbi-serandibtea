@@ -125,6 +125,7 @@ function AddAllocating(){
 
 return(
 
+   
     <div class="wrapper">
         
         <nav id="sidebar" className={isSidebarOpen ? "active" : ""}>
@@ -167,19 +168,19 @@ return(
                             <a href="/addequipment">Add Equipment Details</a>
                         </li>
                         <li>
-                            <a href="#">View Equipment Details</a>
+                            <a href="/equipment/viewequipment">View Equipment Details</a>
                         </li>
                         <li>
-                            <a href="#">Allocate Equipment</a>
+                            <a href="/addallocating">Allocate Equipment</a>
                         </li>
                         <li>
                             <a href="/allocating/viewallocating">View Allocate Details</a>
                         </li>
                         <li>
-                            <a href="#">Monitoring Equipment</a>
+                            <a href="/addmonitor">Monitoring Equipment</a>
                         </li>
                         <li>
-                            <a href="#">View Performance Details</a>
+                            <a href="/viewmonitor">View Performance Details</a>
                         </li>
 
                     </ul>
