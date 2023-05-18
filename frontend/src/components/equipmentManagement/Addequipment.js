@@ -3,6 +3,7 @@ import axios from 'axios';
 import "../../NavigateBar.css";
 import { FiLogOut } from 'react-icons/fi';
 import { AiOutlineBars } from 'react-icons/ai';
+import Swal from 'sweetalert2'
 
 
 
@@ -22,10 +23,20 @@ export  default function Addequipment(){
   const [intertek, setIntertek] = useState("");
   const [status, setStatus] = useState("");
 
+
+  const [RegNoErr, setRegNoErr] = useState("");
+  const [namNoErr, setnamErr] = useState("");
+
   
 
   function sendData(e){
       e.preventDefault();
+
+
+      const isValid = formValidation();
+      const nValid = nValidation();
+
+      if (isValid && nValid ) {
     
       const newEquipment= {
         equipmentid,
@@ -49,8 +60,75 @@ export  default function Addequipment(){
           alert(err);
       })
    
+    }
   }
 
+  const formValidation = () => {//validate function
+
+    const RegNoErr = {}; //State
+    let isValid = true; 
+    setRegNoErr(RegNoErr);//update error objects
+    return isValid;
+
+
+}
+
+const nValidation = () => {//validate function
+
+    const namNoErr = {}; //State
+    let nValid = true; 
+    setnamErr(namNoErr);//update error objects
+    return nValid;
+
+
+}
+
+const [isRegValid, setRegIsValid] = useState(false);
+const [Regmessage, setRegMessage] = useState('');
+
+const VehRegex1 = /^[E][0-9][0-9][0-9]$/;
+const VehRegex2 = /^[E][0-9][0-9][0-9]$/;
+
+const validateRegNo = (event) => {
+
+    const RegNo = event.target.value;
+    if (VehRegex1.test(RegNo)) {
+        setRegIsValid(true);
+        setRegMessage('Vehicle Registation Number looks good!');
+    } else if (VehRegex2.test(RegNo)) {
+        setRegIsValid(true);
+        setRegMessage('Vehicle Registation Number looks good!');
+
+    }
+    else {
+        setRegIsValid(false);
+        setRegMessage('Please enter a valid Vehicle Registation Number !');
+    }
+};
+
+const [isnValid, setnIsValid] = useState(false);
+const [nmessage, setnMessage] = useState('');
+
+// const nRegex1 = /^[0-9][0-9][0-9][0-9]$/;
+const nRegex1 = /^[A-Z a-z]$/;
+// const Regex2 = /^ [A-Z]$/;
+
+const validaten = (event) => {
+
+    const RegN = event.target.value;
+    if (nRegex1.test(RegN)) {
+        setnIsValid(true);
+        setnMessage('Vehicle Registation Number looks good!');
+    
+    }else if (nRegex1.test(RegN)) {
+        setRegIsValid(true);
+        setnMessage('Vehicle Registation Number looks good!');
+    }
+    else {
+        setnIsValid(false);
+        setnMessage('RR');
+    }
+}
 
   return(
 
@@ -192,21 +270,47 @@ export  default function Addequipment(){
                         <form class="form" onSubmit={sendData}>
                             <div class="form pt-5 mb-2">
                                     <label for="expenseid">Equipment ID </label>
-                                    <input type="text" class="form-control formInput" id="expenseid" pattern="[E][0-9]{4}" placeholder="Enter Equipment ID"
+                                    <input type="text" class="form-control formInput" id="expenseid" placeholder="Enter Equipment ID"
                                     onChange={(e)=>{
                                         setEquipmentid(e.target.value);
+                                        validateRegNo(e);
                                     }}/>
                                 
-                            </div>
+                                <div className={`message ${isRegValid ? 'success' : 'error'}`}>
+                                                        {Regmessage}
+                                                    </div>
+
+
+
+
+                                                    {Object.keys(RegNoErr).map((key) => {
+                                                        // return<div style={{color :"red"}}>{RegNoErr[key]}</div>
+                                                    })}
+                                                
+                                
+                                            </div>
+                            
 
                             <div class="form mb-2">
                                 <label for="totalamount"> Equipment Name </label>
                                 <input type="text" class="form-control formInput" id="production" placeholder="Enter Equipment Name"
                                 onChange={(e)=>{
                                     setEquipmentname(e.target.value);
+                                    validaten(e);
                                 }}/>
 
-                            </div>
+                                                <div className={`message ${isnValid ? 'success' : 'error'}`}>
+                                                        {nmessage}
+                                                    </div>
+
+                                                    {Object.keys(namNoErr).map((key) => {
+                                                        // return<div style={{color :"red"}}>{RegNoErr[key]}</div>
+                                                    })}
+                                                
+                                
+                                            </div>
+
+                            
 
 
                             <div class="form mb-2">
@@ -232,7 +336,7 @@ export  default function Addequipment(){
 
                             <div class="form mb-2">
                                 <label for="totalamount"> Date</label>
-                                <input type="date" class="form-control formInput" id="production" placeholder=""
+                                <input type="date" class="form-control formInput" id="production" placeholder="" required
                                 onChange={(e)=>{
                                     setDate(e.target.value);
                                 }}/>
@@ -241,7 +345,7 @@ export  default function Addequipment(){
 
                             <div class="form mb-2">
                                 <label for="totalamount"> Department</label>
-                                <select type="text" class="form-control formInput" id="production" placeholder=""
+                                <select type="text" class="form-control formInput" id="production" placeholder="" required
                                 onChange={(e)=>{
                                     setDepartment(e.target.value);
                                 }}>
@@ -255,7 +359,7 @@ export  default function Addequipment(){
 
                             <div class="form mb-2">
                                 <label for="totalamount">Intertek</label>
-                                <input type="text" class="form-control" id="net_weight" placeholder="Enter Intertek verification number"
+                                <input type="number" class="form-control" id="net_weight" placeholder="Enter Intertek verification number" required
                                 vonChange={(e)=>{
                                     setIntertek(e.target.value);
                                 }}/>
@@ -263,7 +367,7 @@ export  default function Addequipment(){
                             
                             <div class="form mb-2">
                                 <label for="totalamount"> Status of the Equipment</label> 
-                                <select type="text" class="form-control" id="totalamount"
+                                <select type="text" class="form-control" id="totalamount" required
                                 onChange={(e)=>{
                                     setStatus(e.target.value);
                                 }} >

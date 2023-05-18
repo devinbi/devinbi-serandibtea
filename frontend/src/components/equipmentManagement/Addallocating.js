@@ -3,6 +3,7 @@ import axios from 'axios';
 import "../../NavigateBar.css";
 import { FiLogOut } from 'react-icons/fi';
 import { AiOutlineBars } from 'react-icons/ai';
+import Swal from 'sweetalert2'
 
 
 function AddAllocating(){ 
@@ -15,10 +16,26 @@ function AddAllocating(){
   const [wattage, setWattage] = useState(null);
   const [hours, setHours] = useState(null);
   const [result, setResult] = useState(0);
+
+
+
+  const [RegNoErr, setRegNoErr] = useState("");
+  
    
 
   function sendData(e){
       e.preventDefault();
+
+
+      const isValid = formValidation();
+     
+
+
+
+
+      if (isValid) {
+
+
     
       const newAllocating = {
         equipmentid,
@@ -30,24 +47,82 @@ function AddAllocating(){
       
   console.log(newAllocating)
       axios.post("http://localhost:8070/allocating/add",newAllocating).then(()=>{
-          alert("Success");
-          window.location.reload()
-    
-      }).catch((err)=>{
-          alert(err);
-      })
+        //   alert("Success");
+        //   window.location.reload()
+               
+            Swal.fire({
+                title: 'Success!',
+                text: 'Vehicle Details Added Succesfully',
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 2000
+            }
+            ).then(() => {
+                window.location.replace("/allocating/viewallocating");
+
+            })
+
+
+
+        }).catch((err) => {
+
+            const msgerr = err.response.data.status
+            Swal.fire({
+                icon: 'warning',
+                title: 'Oops...',
+                text: `${msgerr}`,
+                confirmButtonColor: '#1fc191',
+
+            })
+        })
+
    
   }
 
+  
+  }
 
-useEffect(() => {
-  setResult((wattage ? wattage : 0) * (hours ? hours : 0));
-  console.log("result", result);
-}, [wattage, hours]);
-
+  useEffect(() => {
+    setResult((wattage ? wattage : 0) * (hours ? hours : 0));
+    console.log("result", result);
+  }, [wattage, hours]);
   
 
-  
+  const formValidation = () => {//validate function
+
+    const RegNoErr = {}; //State
+    let isValid = true; 
+
+    setRegNoErr(RegNoErr);//update error objects
+    return isValid;
+
+}
+
+
+    const [isRegValid, setRegIsValid] = useState(false);
+    const [Regmessage, setRegMessage] = useState('');
+
+    const VehRegex1 = /^[E][0-9][0-9][0-9]$/;
+    const VehRegex2 = /^[E][0-9][0-9][0-9]$/;
+
+    const validateRegNo = (event) => {
+
+        const RegNo = event.target.value;
+        if (VehRegex1.test(RegNo)) {
+            setRegIsValid(true);
+            setRegMessage('Vehicle Registation Number looks good!');
+        } else if (VehRegex2.test(RegNo)) {
+            setRegIsValid(true);
+            setRegMessage('Vehicle Registation Number looks good!');
+
+        }
+        else {
+            setRegIsValid(false);
+            setRegMessage('Please enter a valid Vehicle Registation Number !');
+        }
+    };
+
+
 return(
 
     <div class="wrapper">
@@ -188,12 +263,26 @@ return(
                         <form class="form" onSubmit={sendData}>
                             <div class="form pt-5 mb-2">
                                     <label for="expenseid">equipment ID :</label>
-                                    <input type="text" class="form-control formInput" id="expenseid" pattern="[E][0-9]{4}" placeholder="Enter Supplier ID"
+                                    <input type="text" class="form-control formInput" id="expenseid" placeholder="Enter Supplier ID"
                                     onChange={(e)=>{
                                         setEquipmentid(e.target.value);
+                                        validateRegNo(e);
                                     }}/>
+
+
+                                                    <div className={`message ${isRegValid ? 'success' : 'error'}`}>
+                                                        {Regmessage}
+                                                    </div>
+
+
+
+
+                                                    {Object.keys(RegNoErr).map((key) => {
+                                                        // return<div style={{color :"red"}}>{RegNoErr[key]}</div>
+                                                    })}
+                                                
                                 
-                            </div>
+                                            </div>
 
 
                             <div class="form mb-2">
@@ -210,6 +299,7 @@ return(
                                             setDepartment(e.target.value);// assign value
                                         }}
                                         >
+                                         <option id="car">choose</option>
                                          <option id="car">cutting</option>
                                          <option id="van">rolling</option>
                                          <option id="bus">heating</option>
@@ -218,8 +308,8 @@ return(
                             </div>
 
                             <div class="form mb-2">
-                                <label for="totalamount"> Wattage :</label>
-                                <input type="text" class="form-control formInput" id="production" placeholder="Enter Weight"
+                                <label for="totalamount"> Wattage </label>
+                                <input type="number" class="form-control formInput" id="production" placeholder="Enter Weight" required 
                                 onChange={(e)=>{
                                     setWattage(e.target.value);
                                 }}/>
@@ -227,8 +317,8 @@ return(
                             </div>
                             
                             <div class="form mb-2">
-                                <label for="totalamount"> Hours:</label> 
-                                <input type="text" class="form-control" id="totalamount" placeholder="Enter Moisture Content of the Tea Leaves"
+                                <label for="totalamount"> Hours</label> 
+                                <input type="number" class="form-control" id="totalamount" placeholder="Enter Moisture Content of the Tea Leaves" required
                                 onChange={(e)=>{
                                     setHours(e.target.value);
                                 }}/>
