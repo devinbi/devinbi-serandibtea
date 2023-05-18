@@ -1,7 +1,7 @@
 const router = require("express").Router();
 let employee = require("../models/employee");
 
-//Add Employee
+//Add Employees
 
 router.route("/add").post(async(req,res)=>{
 
