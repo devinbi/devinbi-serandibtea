@@ -7,7 +7,7 @@ import { AiOutlineBars } from 'react-icons/ai';
 
 function AddEmployee() {
 
-    // important to slide navigatebar
+    // important to slide navigatebars
     const [isSidebarOpen, setIsSidebarOpen] = useState(false); 
     const handleSidebarToggle = () => { setIsSidebarOpen(!isSidebarOpen); };
 
