@@ -49,12 +49,12 @@ const vehicleSchema = new Schema({
     },
 
     Eco_Test_Issued_Date :{
-        type: String,
+        type: Date,
         required: true
     },
 
     Eco_Test_Expire_Date :{
-        type: String,
+        type: Date,
         required: true
     },
     
@@ -92,7 +92,7 @@ const vehicleSchema = new Schema({
     },
 
     Date:{
-        type : String,
+        type : Date,
         required:false
     }
    

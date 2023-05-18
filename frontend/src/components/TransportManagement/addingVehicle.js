@@ -159,22 +159,25 @@ function AddVehicle() {
                     <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle ">Transport Management</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu2">
                         <li>
-                            <a href="#">Add Vehicle & Owner Details</a>
+                            <a href="/addvehicle">Add Vehicle & Owner Details</a>
                         </li>
                         <li>
-                            <a href="#">View Vehicle & Owner Details</a>
+                            <a href="/Vehicle/viewVehicle">View Vehicle & Owner Details</a>
                         </li>
                         <li>
-                            <a href="#">Allocate Equipment</a>
+                            <a href="#">Allocate Vehicles</a>
                         </li>
                         <li>
-                            <a href="#">View Allocate Details</a>
+                            <a href="#">View Allocate Vehicle Details</a>
                         </li>
                         <li>
-                            <a href="#">Monitoring Equipment</a>
+                            <a href="#">Add Vehicle Maintenance Details</a>
                         </li>
                         <li>
-                            <a href="#">View Performance Details</a>
+                            <a href="#">View Vehicle Maintenance Details</a>
+                        </li>
+                        <li>
+                            <a href="#">High Cost Vehicle Maintenance Details</a>
                         </li>
 
                     </ul>
@@ -304,7 +307,7 @@ function AddVehicle() {
 
                             <div class="form mb-2">
                                 <label for="Eco_Test_Issued_Date">Eco Test Issued Date:</label>
-                                <input type="text" class="form-control" id="Eco_Test_Issued_Date" 
+                                <input type="Date" class="form-control" id="Eco_Test_Issued_Date" 
                                 onChange={(e)=>{
                                     setEcoIssuedate(e.target.value);
                                 }}/>
@@ -313,7 +316,7 @@ function AddVehicle() {
 
                             <div class="form mb-2">
                                 <label for="Eco_Test_Expire_Date">Eco Test Expire Date:</label>
-                                <input type="text" class="form-control" id="Eco_Test_Expire_Date" 
+                                <input type="Date" class="form-control" id="Eco_Test_Expire_Date" 
                                 onChange={(e)=>{
                                     setEcoExpireDate(e.target.value);
                                 }}/>
@@ -390,7 +393,7 @@ function AddVehicle() {
 
                             <div class="form mb-2">
                                 <label for="Date">Date:</label>
-                                <input type="text" class="form-control" id="Date" 
+                                <input type="Date" class="form-control" id="Date" 
                                 onChange={(e)=>{
                                     setDate(e.target.value);
                                 }}/>

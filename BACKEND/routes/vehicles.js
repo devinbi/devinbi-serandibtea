@@ -288,16 +288,34 @@ router.route("/searchV/:search").get(async (req, res) => {
 
 })
 
-//searh records
+
 router.route("/getExpire").get(async (req, res) => {
+    // Get today's date 
+    var today = new Date(); 
+    // Define the number of days after today 
+    var daysAfter = 365; 
+    // Calculate the date after the specified number of days 
+    var dateAfterDays = new Date(today.getTime() + (daysAfter * 24 * 60 * 60 * 1000)); 
+    // Extract the year from the calculated date 
+    var yearAfterDays = dateAfterDays; 
+ 
+    const responses = await Vehicle.find({
+        'Eco_Test_Expire_Date':  {          
+                            $gte:today,
+                            $lte:yearAfterDays,
+                        }             
+    })
+    console.log(responses[0].Eco_Test_Expire_Date)
+    var months_6_After = 6; 
+    var dateAfter_6_Months = new Date(responses[0].Eco_Test_Expire_Date.getFullYear(), responses[0].Eco_Test_Expire_Date.getMonth() - months_6_After, responses[0].Eco_Test_Expire_Date.getDate());
+    console.log(dateAfter_6_Months);
+    var months_12_After = 12; 
+    var dateAfter_12_Months = new Date(responses[0].Eco_Test_Expire_Date.getFullYear(), responses[0].Eco_Test_Expire_Date.getMonth() - months_12_After, responses[0].Eco_Test_Expire_Date.getDate());
+    console.log(dateAfter_12_Months);
+    return res.status(200).send({ status: "Success", data: responses });
 
-    // Current date: September 29, 2022
-const date = new Date();
 
-date.setDate(date.getDate() + 30);
-
-// New date: August 30, 2022
-console.log(date);
+    
 
 })
 

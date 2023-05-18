@@ -262,7 +262,7 @@ function AddMaintenance() {
                           
                             <div class="form mb-2">
                                 <label for="Date">Date:</label>
-                                <input type="text" class="form-control" id="Date" 
+                                <input type="Date" class="form-control" id="Date" 
                                 onChange={(e)=>{
                                     setDate(e.target.value);
                                 }}/>
