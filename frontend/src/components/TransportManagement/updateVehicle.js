@@ -30,6 +30,7 @@ function UpdateVehicleModal(Vehicle) {
             setNIC(Vehicle.data.NIC);
             setAddress(Vehicle.data.Address);
             setContactNo(Vehicle.data.Contact_No);
+            setReminderSendCount(Vehicle.data.reminder_send_count);
             setDate(Vehicle.data.Date);
             
 
@@ -55,6 +56,7 @@ function UpdateVehicleModal(Vehicle) {
     const [NIC, setNIC] = useState("");
     const [Address, setAddress] = useState("");
     const [Contact_No, setContactNo] = useState("");
+    const [reminder_send_count, setReminderSendCount] = useState("");
     const [Date, setDate] = useState("");
      
 
@@ -80,6 +82,7 @@ function UpdateVehicleModal(Vehicle) {
                 NIC,
                 Address,
                 Contact_No,
+                reminder_send_count,
                 Date
             }
 
@@ -410,10 +413,26 @@ function UpdateVehicleModal(Vehicle) {
                                         setContactNo(e.target.value); 
                                     }}
 
+                                />
+
+                            </div>
+
+                            <div class="form-group col-sm">
+                                <label class="form-label-emp" for="reminder_send_count">Reminder send count</label>
+                                <input type="Number" class="form-control formInput" id="reminder_send_count" name="reminder_send_count" 
+                                 tabindex="1" required
+
+                                    value={reminder_send_count}
+
+                                    onChange={(e) => {
+                                        setReminderSendCount(e.target.value); 
+                                    }}
+
 
                                 />
 
                             </div>
+
 
                             
                             <div class="form-group col-sm">

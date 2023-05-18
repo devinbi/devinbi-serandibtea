@@ -25,6 +25,7 @@ router.route("/addVehicle").post((req, res) => {
     const NIC = req.body.NIC;
     const Address = req.body.Address;
     const Contact_No = req.body.Contact_No;
+    const reminder_send_count = req.body. reminder_send_count;
     const Date = moment(req.body.Date).format('YYYY-MM-DD');
     // const vehPic = req.body.imgPath;
 
@@ -47,6 +48,7 @@ router.route("/addVehicle").post((req, res) => {
         NIC,
         Address,
         Contact_No,
+        reminder_send_count,
         Date
 
         // vehPic,
@@ -72,7 +74,7 @@ router.route("/updateVehicle/:id").put(async (req, res) => {
     let userId = req.params.id;
     const { Vehicle_ID, Vehicle_Type, Vehicle_Brand, Vehicle_Model, Vehicle_Registration_No, Current_Mileage, Insurance_Type,
         Insurance_Name, Air_Condition, Eco_Test_Issued_Date, Eco_Test_Expire_Date, Fuel_Type, Vehicle_Owner, Owner_Name,
-        NIC, Address, Contact_No, Date } = req.body;
+        NIC, Address, Contact_No,  reminder_send_count, Date } = req.body;
 
     const updateVehicle = {
         Vehicle_ID,
@@ -92,6 +94,7 @@ router.route("/updateVehicle/:id").put(async (req, res) => {
         NIC,
         Address,
         Contact_No,
+        reminder_send_count,
         Date
     }
     const update = await Vehicle.findByIdAndUpdate(userId, updateVehicle)

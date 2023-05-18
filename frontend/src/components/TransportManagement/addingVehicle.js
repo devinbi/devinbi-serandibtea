@@ -29,6 +29,7 @@ function AddVehicle() {
     const [NIC, setNIC] = useState("");
     const [Address, setAddress] = useState("");
     const [Contact_No, setContactNo] = useState("");
+    const [reminder_send_count, setReminderSendCount] = useState("");
     const [Date, setDate] = useState("");
 
 
@@ -55,6 +56,7 @@ function AddVehicle() {
             NIC,
             Address,
             Contact_No,
+            reminder_send_count,
             Date
         }
         
@@ -387,6 +389,15 @@ function AddVehicle() {
                                 <input type="text" class="form-control" id="Contact_No" 
                                 onChange={(e)=>{
                                     setContactNo(e.target.value);
+                                }}/>
+
+                            </div>
+
+                            <div class="form mb-2">
+                                <label for="reminder_send_count">Reminder send count:</label>
+                                <input type="Number" class="form-control" id="reminder_send_count" 
+                                onChange={(e)=>{
+                                    setReminderSendCount(e.target.value);
                                 }}/>
 
                             </div>

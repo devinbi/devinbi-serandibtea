@@ -91,6 +91,11 @@ const vehicleSchema = new Schema({
         required:false
     },
 
+    reminder_send_count:{
+        type : Number,
+        required:false
+    },
+
     Date:{
         type : Date,
         required:false
