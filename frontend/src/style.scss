@@ -365,63 +365,48 @@
   box-shadow: 0px 0px 10px 2px rgba(16, 194, 146, 0.2),
     0px 0px 10px 0px rgba(207, 24, 24, 0.19);
 }
-  
-  
-  .btn-close {
-    background-color: #1fc191;
-    color: white;
-    width: 100px;
-    font-size: 1.1rem;
-    border-radius: 0.5rem;
-    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2),
-      0px 0px 10px 0px rgba(0, 0, 0, 0.19);
-  }
-  
-  .btn-reset {
-    background-image: linear-gradient(147deg, #990000 0%, #ff0000 74%);
-    color: white;
-    width: 200px;
-    font-size: 1.1rem;
-    border-radius: 0.5rem;
-    border: none;
-    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2),
-      0px 0px 10px 0px rgba(0, 0, 0, 0.19);
-  }
-  .btn-reset:hover{
-    background-image: linear-gradient(315deg, #990000 0%, #ff0000 74%);
-    font-size: 1.2rem;
-    font-weight: 800;
-    color: rgb(0, 0, 0);
-  }
-  
-  .btn-delete {
-    background-image: linear-gradient(315deg, #438f77 0%, #0d613b 74%);
-    color: white;
-    width: 200px;
-    font-size: 1.1rem;
-    border-radius: 0.5rem;
-    border: none;
-    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2),
-      0px 0px 10px 0px rgba(0, 0, 0, 0.19);
-  }
-  .btn-delete:hover{
-    background-image: linear-gradient(315deg, #0d613b 0%, #438f77 74%);
-    font-size: 1.2rem;
-    font-weight: 800;
-    color: rgb(0, 0, 0);
-  }
-  
-  .btn-download {
-    margin: 1rem 0 1rem 0;
-    float: right;
-    background-color: #1fc191;
-    color: white;
-    width: 80px;
-    font-size: 1.1rem;
-    border-radius: 0.5rem;
-    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2),
-      0px 0px 10px 0px rgba(0, 0, 0, 0.19);
-  }
+
+.btn-close {
+  background-color: #1fc191;
+  color: white;
+  width: 100px;
+  font-size: 1.1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2),
+    0px 0px 10px 0px rgba(0, 0, 0, 0.19);
+}
+
+.btn-reset {
+  background-color: #ba0d0d;
+  color: white;
+  width: 200px;
+  font-size: 1.1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2),
+    0px 0px 10px 0px rgba(0, 0, 0, 0.19);
+}
+
+.btn-delete {
+  background-color: #db3643;
+  color: white;
+  width: 200px;
+  font-size: 1.1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2),
+    0px 0px 10px 0px rgba(0, 0, 0, 0.19);
+}
+
+.btn-download {
+  margin: 1rem 0 1rem 0;
+  float: right;
+  background-color: #1fc191;
+  color: white;
+  width: 80px;
+  font-size: 1.1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2),
+    0px 0px 10px 0px rgba(0, 0, 0, 0.19);
+}
 
   .btn-logout{
     font-size: 1.1em;
@@ -431,7 +416,7 @@
     font-size: 22px;
   }
   
-  /*hasani*/
+  
   .rental-summary-body {
     position: absolute;
     top: 10rem;
@@ -596,240 +581,223 @@
     color: red;
   }
 
-  .headerNameFont{
-    font-family: 'Source Code Pro', monospace;
-  }
+/*css for colors*/
+.white {
+  color: white;
+}
 
-  .tbl-Action-icon{
-    cursor: pointer;
-    
-  }
-  
-  /*css for colors*/
-  .white {
-    color: white;
-  }
-  
-  /*searchbar*/
-  
-  .searchbar {
-    margin-right: -5px;
-    height: 40px;
-    background-color: #ffffff;
-    border-radius: 30px;
-    border-style: solid;
-    border-color: #1fc191;
-    padding: 0;
-  }
-  
-  .search_input {
-    color: black;
-    border: 0;
-    outline: 0;
-    background: none;
-    width: 21.5rem;
-    line-height: 30px;
-    padding-left: 1rem;
-  }
-  
-  .searchbar:hover>.search_icon {
-    color: #000000;
-  }
-  
-  .search_icon {
-    height: 35px;
-    width: 80px;
-    float: right;
-    display: flex;
-    border-radius: 1rem;
-    color: white;
-    background-color: #ffd200;
-    text-decoration: none;
-    margin: 0 auto;
-  }
-  
-  .fa-animate:hover {
-    -ms-transform: rotate(90deg);
-    /* IE 9 */
-    transform: rotate(90deg);
-  }
-  
-  /*bg*/
-  .cube {
-    position: absolute;
-    top: 80vh;
-    left: 45vw;
-    width: 10px;
-    height: 10px;
-    border: solid 1px #088076;
-    transform-origin: top left;
+/*searchbar*/
+
+.searchbar {
+  margin-right: -5px;
+  height: 40px;
+  background-color: #ffffff;
+  border-radius: 30px;
+  border-style: solid;
+  border-color: #1fc191;
+  padding: 0;
+}
+
+.search_input {
+  color: black;
+  border: 0;
+  outline: 0;
+  background: none;
+  width: 21.5rem;
+  line-height: 30px;
+  padding-left: 1rem;
+}
+
+.searchbar:hover>.search_icon {
+  color: #000000;
+}
+
+.search_icon {
+  height: 35px;
+  width: 80px;
+  float: right;
+  display: flex;
+  border-radius: 1rem;
+  color: white;
+  background-color: #ffd200;
+  text-decoration: none;
+  margin: 0 auto;
+}
+
+.fa-animate:hover {
+  -ms-transform: rotate(90deg);
+  /* IE 9 */
+  transform: rotate(90deg);
+}
+
+/*bg*/
+.cube {
+  position: absolute;
+  top: 80vh;
+  left: 45vw;
+  width: 10px;
+  height: 10px;
+  border: solid 1px #088076;
+  transform-origin: top left;
+  transform: scale(0) rotate(0deg) translate(-50%, -50%);
+  animation: cube 12s ease-in forwards infinite;
+  z-index: -1;
+}
+
+.cube:nth-child(2n) {
+  border-color: rgb(54, 54, 54);
+}
+
+.cube:nth-child(2) {
+  animation-delay: 2s;
+  left: 25vw;
+  top: 40vh;
+}
+
+.cube:nth-child(3) {
+  animation-delay: 4s;
+  left: 75vw;
+  top: 50vh;
+}
+
+.cube:nth-child(4) {
+  animation-delay: 6s;
+  left: 90vw;
+  top: 10vh;
+}
+
+.cube:nth-child(5) {
+  animation-delay: 8s;
+  left: 10vw;
+  top: 85vh;
+}
+
+.cube:nth-child(6) {
+  animation-delay: 10s;
+  left: 50vw;
+  top: 10vh;
+}
+
+.cube:nth-child(7) {
+  animation-delay: 12s;
+  left: 50vw;
+  top: 35vh;
+}
+
+.cube:nth-child(8) {
+  animation-delay: 14s;
+  left: 80vw;
+  top: 90vh;
+}
+
+@keyframes cube {
+  from {
     transform: scale(0) rotate(0deg) translate(-50%, -50%);
-    animation: cube 12s ease-in forwards infinite;
-    z-index: -1;
-  }
-  
-  .cube:nth-child(2n) {
-    border-color: rgb(54, 54, 54);
-  }
-  
-  .cube:nth-child(2) {
-    animation-delay: 2s;
-    left: 25vw;
-    top: 40vh;
-  }
-  
-  .cube:nth-child(3) {
-    animation-delay: 4s;
-    left: 75vw;
-    top: 50vh;
-  }
-  
-  .cube:nth-child(4) {
-    animation-delay: 6s;
-    left: 90vw;
-    top: 10vh;
-  }
-  
-  .cube:nth-child(5) {
-    animation-delay: 8s;
-    left: 10vw;
-    top: 85vh;
-  }
-  
-  .cube:nth-child(6) {
-    animation-delay: 10s;
-    left: 50vw;
-    top: 10vh;
-  }
-  
-  .cube:nth-child(7) {
-    animation-delay: 12s;
-    left: 50vw;
-    top: 35vh;
-  }
-  
-  .cube:nth-child(8) {
-    animation-delay: 14s;
-    left: 80vw;
-    top: 90vh;
-  }
-  
-  @keyframes cube {
-    from {
-      transform: scale(0) rotate(0deg) translate(-50%, -50%);
-      opacity: 1;
-    }
-  
-    to {
-      transform: scale(10) rotate(960deg) translate(-50%, -50%);
-      opacity: 0;
-    }
-  }
-  
-  /*vehicle adding form*/
-  .topic {
-    font-size: 30px;
-  }
-  
-  .input-main-form-V {
-    width: 800px;
-    position: relative;
-    border-radius: 0.5rem;
-  }
-  
-  .btn-ok-V {
-    background-color: #1fc191;
-    color: black;
-    top: 400px;
-    width: 200px;
-    font-size: 1.1rem;
-    border-radius: 0.5rem;
-    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2),
-      0px 0px 10px 0px rgba(0, 0, 0, 0.19);
-  }
-  
-  //validation styles
-  .message {
-    font-size: 14px;
-  }
-  
-  .success {
-    color: #1fc191;
-  }
-  
-  .error {
-    color: #980000;
-  }
-  
-  .package {
-    position: absolute;
-    top: 0rem;
-    left: 105%;
-    width: 300px;
-    height: 300px;
-    border-radius: 0.5rem;
-    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2),
-      0px 0px 10px 0px rgba(0, 0, 0, 0.19);
-  }
-  
-  //dashboard
-  .comp-one {
-    background-color: rgb(255, 255, 255);
-    max-width: 1110px;
-    min-height: 200px;
-    justify-content: center;
-    padding: 1rem 1rem 1rem 1rem;
-    border-radius: 30px;
-    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2),
-      0px 0px 10px 0px rgba(0, 0, 0, 0.19);
-  }
-  
-  .links {
-    margin-left: 12rem;
-  }
-  
-  .qlink {
-    margin-right: 1rem;
-    margin-left: 1rem;
-  }
-  
-  .dashboard-hr {
-    border-color: #b1b1b1;
-    border-width: 0.1rem;
-  }
-  
-  .btn-info-total {
-    background-color: #1fc191;
-    color: white;
-    width: 200px;
-    font-size: 1.1rem;
-    border-radius: 0.5rem;
-    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2),
-      0px 0px 10px 0px rgba(0, 0, 0, 0.19);
-  }
-  
-  //report
-  .report {
-    border-color: #1fc191;
-    border-width: 0.5rem !important;
-    min-height: 1000px;
-  }
-  
-  
-  .ball {
-    position: absolute;
-    border-radius: 100%;
-    opacity: 0.7;
+    opacity: 1;
   }
 
-  // IN Table 
-  // Confirm Deletion Pop-Up Message
-  .dlt-confirm {
-    font-family: 'Poppins', sans-serif;
-    text-align:left;
-    font-size: 1.2em;
-    color: #08442b;
+  to {
+    transform: scale(10) rotate(960deg) translate(-50%, -50%);
+    opacity: 0;
   }
+}
+
+/*vehicle adding form*/
+.topic-V {
+  font-size: 20px;
+}
+
+.input-main-form-V {
+  width: 800px;
+  position: relative;
+  border-radius: 0.5rem;
+}
+
+.btn-ok-V {
+  background-color: #1fc191;
+  color: black;
+  top: 400px;
+  width: 200px;
+  font-size: 1.1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2),
+    0px 0px 10px 0px rgba(0, 0, 0, 0.19);
+}
+
+//validation styles
+.message {
+  font-size: 14px;
+}
+
+.success {
+  color: #1fc191;
+}
+
+.error {
+  color: #980000;
+}
+
+.package {
+  position: absolute;
+  top: 0rem;
+  left: 105%;
+  width: 300px;
+  height: 300px;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2),
+    0px 0px 10px 0px rgba(0, 0, 0, 0.19);
+}
+
+//dashboard
+.comp-one {
+  background-color: rgb(255, 255, 255);
+  max-width: 1110px;
+  min-height: 200px;
+  justify-content: center;
+  padding: 1rem 1rem 1rem 1rem;
+  border-radius: 30px;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2),
+    0px 0px 10px 0px rgba(0, 0, 0, 0.19);
+}
+
+.links {
+  margin-left: 12rem;
+}
+
+.qlink {
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+
+.dashboard-hr {
+  border-color: #b1b1b1;
+  border-width: 0.1rem;
+}
+
+.btn-info-total {
+  background-color: #1fc191;
+  color: white;
+  width: 200px;
+  font-size: 1.1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2),
+    0px 0px 10px 0px rgba(0, 0, 0, 0.19);
+}
+
+//report
+.report {
+  border-color: #1fc191;
+  border-width: 0.5rem !important;
+  min-height: 1000px;
+}
+
+
+.ball {
+  position: absolute;
+  border-radius: 100%;
+  opacity: 0.7;
+}
+
 
   .border{
     box-shadow: 0px 0px 10px 1px #45be96;
