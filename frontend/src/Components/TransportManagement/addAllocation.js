@@ -28,14 +28,14 @@ function AddAllocation() {
     const defaultOption = options[0];
     useEffect(() => {
         options.push()
-        if(Tea_Quantity >= 500){
+        if(Tea_Quantity >= 5000){
             
-            options.push('one', 'two', 'three')
+            options.push('18.5 isuzu lorry', '16.5 isuzu lorry', 'Truck')
     
         }
-        if(Tea_Quantity < 500){
+        if(Tea_Quantity < 5000){
             
-            options.push('Car', 'van')
+            options.push('Demo Batta', '10.5 isuzu lorry', 'Volkswagen Crafter 2.0 CR35')
     
         }
 

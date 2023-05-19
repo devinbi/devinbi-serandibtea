@@ -65,7 +65,52 @@ function ViewAllVehicle() {
     }, []);
 
     const deletevehicle = async (data) => {
-        console.log("----------------",data._id);
+       
+
+        const Vehicle_ID = data.Vehicle_ID;
+        const Vehicle_Type = data.Vehicle_Type;
+        const Vehicle_Brand = data.Vehicle_Brand;
+        const Vehicle_Model = data.Vehicle_Model;
+        const Vehicle_Registration_No = data.Vehicle_Registration_No;
+        const Current_Mileage = data.Current_Mileage;
+        const Insurance_Type = data.Insurance_Type;
+        const Insurance_Name = data.Insurance_Name;
+        const Air_Condition = data.Air_Condition;
+        const Eco_Test_Issued_Date = data.Eco_Test_Issued_Date;
+        const Eco_Test_Expire_Date = data.Eco_Test_Expire_Date;
+        const Fuel_Type = data.Fuel_Type;
+        const Vehicle_Owner = data.Vehicle_Owner;
+        const Owner_Name = data.Owner_Name;
+        const NIC = data.NIC;
+        const Address = data.Address;
+        const Contact_No = data.Contact_No;
+        const Date = data.Date;
+    
+        const removedVehicle = {
+            Vehicle_ID,
+            Vehicle_Type, 
+            Vehicle_Brand,
+            Vehicle_Model,
+            Vehicle_Registration_No,
+            Current_Mileage,
+            Insurance_Type,
+            Insurance_Name,
+            Air_Condition,
+            Eco_Test_Issued_Date,
+            Eco_Test_Expire_Date,
+            Fuel_Type,
+            Vehicle_Owner,
+            Owner_Name,
+            NIC,
+            Address,
+            Contact_No,
+            Date
+        }
+        axios.post("http://localhost:8070/Del/addDeletedVehicle",removedVehicle).then((response)=>{
+        console.log(response)
+        }).catch((err)=>{
+        alert(err)
+        })
         
         // console.log("modalDataDelete.fyiff",modalDataDelete);
         const value = axios.delete(`http://localhost:8070/Vehicle/deleteVehicle/${data._id}`);

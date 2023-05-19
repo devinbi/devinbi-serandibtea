@@ -64,6 +64,9 @@ app.use("/allocation", AllocationRouter);
 const MaintenanceRouter = require("./routes/maintenances.js");
 app.use("/maintenance", MaintenanceRouter);
 
+const DeletedVehicleRouter = require("./routes/deletedVehicles.js");
+app.use("/Del", DeletedVehicleRouter);
+
 
 
 app.listen(PORT, () => {
