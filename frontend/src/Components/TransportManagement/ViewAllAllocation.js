@@ -200,22 +200,28 @@ function ViewAllAllocation() {
                     <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle ">Transport Management</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu2">
                         <li>
-                            <a href="#">Add Vehicle & Owner Details</a>
+                            <a href="/addvehicle">Add Vehicle & Owner Details</a>
                         </li>
                         <li>
-                            <a href="#">View Vehicle & Owner Details</a>
+                            <a href="/Vehicle/viewVehicle">View Vehicle & Owner Details</a>
                         </li>
                         <li>
-                            <a href="#">Allocate Equipment</a>
+                            <a href="/addallocation">Allocate Vehicles</a>
                         </li>
                         <li>
-                            <a href="#">View Allocate Details</a>
+                            <a href="/allocation/viewAllocation">View Allocated Vehicle Details</a>
                         </li>
                         <li>
-                            <a href="#">Monitoring Equipment</a>
+                            <a href="/addmaintenance">Add Vehicle Maintenance Details</a>
                         </li>
                         <li>
-                            <a href="#">View Performance Details</a>
+                            <a href="/maintenance/viewMaintenance">View Vehicle Maintenance Details</a>
+                        </li>
+                        <li>
+                            <a href="/filter">High Cost Vehicle Maintenance Details</a>
+                        </li>
+                        <li>
+                            <a href="/Delvehicle">Deleted Vehicle Details</a>
                         </li>
 
                     </ul>

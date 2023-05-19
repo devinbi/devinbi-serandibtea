@@ -165,19 +165,22 @@ function AddVehicle() {
                             <a href="/Vehicle/viewVehicle">View Vehicle & Owner Details</a>
                         </li>
                         <li>
-                            <a href="#">Allocate Vehicles</a>
+                            <a href="/addallocation">Allocate Vehicles</a>
                         </li>
                         <li>
-                            <a href="#">View Allocate Vehicle Details</a>
+                            <a href="/allocation/viewAllocation">View Allocated Vehicle Details</a>
                         </li>
                         <li>
-                            <a href="#">Add Vehicle Maintenance Details</a>
+                            <a href="/addmaintenance">Add Vehicle Maintenance Details</a>
                         </li>
                         <li>
-                            <a href="#">View Vehicle Maintenance Details</a>
+                            <a href="/maintenance/viewMaintenance">View Vehicle Maintenance Details</a>
                         </li>
                         <li>
-                            <a href="#">High Cost Vehicle Maintenance Details</a>
+                            <a href="/filter">High Cost Vehicle Maintenance Details</a>
+                        </li>
+                        <li>
+                            <a href="/Delvehicle">Deleted Vehicle Details</a>
                         </li>
 
                     </ul>
