@@ -7,14 +7,14 @@ import { AiOutlineBars } from 'react-icons/ai';
 import { HiPencilSquare } from "react-icons/hi2";
 import { HiOutlineTrash } from "react-icons/hi2";
 import Swal from 'sweetalert2'
-import TestModal from './ViewAllTransferredProduct';
+import TestModal from './ViewAllReceivedTeaLeaves';
 
-import UpdateTransferredProductModal from './UpdateTransferredProduct';
-
-
+import UpdateUpdateReceivedTeaLeaves from './UpdateReceivedTeaLeaves';
 
 
-function ViewAllTransferredProduct() {
+
+
+function ViewAllReceivedTeaLeaves() {
 
     // important to slide navigatebar
     const [isSidebarOpen, setIsSidebarOpen] = useState(false); 
@@ -22,9 +22,9 @@ function ViewAllTransferredProduct() {
 
 
 
-    
 
-    const [AllTransferredProduct, setAllTransferredProduct] = useState([]);
+
+    const [AllReceivedTeaLeaves, setAllReceivedTeaLeaves] = useState([]);
  
     const [modalData, setData] = useState([]);
     const [modalShow, setModalShow] = useState(false);
@@ -32,19 +32,17 @@ function ViewAllTransferredProduct() {
     const [modalDataDelete, setModalDataDelete] = useState([]);
     const [modalDeleteConfirm, setModalDeleteConfirm] = useState(false);
 
-    
-
     const [modalDataUpdate, setModalDataUpdate] = useState([]);
     const [modalUpdate, setModalUpdate] = useState(false);
 
 
     useEffect(() => {
 
-        function getAllTransferredProduct() {
-            axios.get("http://localhost:8070/product/").then((res) => {
+        function getAllReceivedTeaLeaves() {
+            axios.get("http://localhost:8070/supplier/").then((res) => {
 
 
-            setAllTransferredProduct(res.data.reverse());
+            setAllReceivedTeaLeaves(res.data.reverse());
 
                 //console.log("Data recieved");
 
@@ -63,43 +61,15 @@ function ViewAllTransferredProduct() {
 
         }
 
-        getAllTransferredProduct();
+        getAllReceivedTeaLeaves();
 
     }, []);
 
     const deleteRental = async (data) => {
         console.log("----------------",data._id);
-
-
-        const productId = data.productId;
-        const productName = data.productName;
-        const type = data.type;
-        const quantity = data.quantity;
-        const weight = data.weight;
-        const status = data.status;
-        const date = data.date;
-    
-        const removedProducts = {
-            productId,
-            productName,
-            type,
-            quantity,
-            weight,
-            status,
-            date 
-        }
-        axios.post("http://localhost:8070/rejectedProduct/add",removedProducts).then((response)=>{
-        console.log(response)
-        }).catch((err)=>{
-        alert(err)
-        })
-
-
-
-        
         
         // console.log("modalDataDelete.fyiff",modalDataDelete);
-        const value = axios.delete(`http://localhost:8070/product/delete/${data._id}`);
+        const value = axios.delete(`http://localhost:8070/supplier/delete/${data._id}`);
         console.log("deletedddd", value);
         if (value) {
             console.log("Value",value.data);
@@ -111,16 +81,16 @@ function ViewAllTransferredProduct() {
                 icon: 'success',
                 showConfirmButton: false,
                 timer: 2000
-            })
-            .then(() => {
+            }
+            ).then(() => {
                 window.location.reload();
             })
         }
         
     }
 
-    const openModal = (AllTransferredProduct) => {
-        setData(AllTransferredProduct);
+    const openModal = (AllReceivedTeaLeaves) => {
+        setData(AllReceivedTeaLeaves);
         handleViewOnClick();
     }
 
@@ -165,16 +135,16 @@ function ViewAllTransferredProduct() {
                             <a href="/AddSupplier">Add Tea Leaves Quantity</a>
                         </li>
                         <li>
-                            <a href="/ViewAllReceivedTeaLeaves">View All Received Tea Leaves</a>
+                            <a href="/ViewAllSuppliers">View All Received Tea Leaves</a>
                         </li>
                         <li>
                             <a href="/AddTransferredproduct">Add Transferred product</a>
                         </li>
                         <li>
-                            <a href="ViewAllTransferredProduct">View All Transferred Product</a>
+                            <a href="/ViewAllTransferredProduct">View All Transferred Product</a>
                         </li>
                         <li>
-                            <a href="RejectedProducts">View Rejected Product</a>
+                            <a href="#">View Rejected Product</a>
                         </li>
                     </ul>
                 </li>
@@ -276,7 +246,7 @@ function ViewAllTransferredProduct() {
 
                             <div class="col">
                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-uppercase headerNameFont" style={{backgroundColor: "#658A4E", color: 'white', }}>
-                                    <h3 className="topic text-center mt-3 mb-3 pt-3 pb-3"  >Total number of Products </h3>
+                                    <h3 className="topic text-center mt-3 mb-3 pt-3 pb-3"  >Details of received tea leaves per day</h3>
                                 </div>
                             </div>
 
@@ -301,37 +271,35 @@ function ViewAllTransferredProduct() {
                             <table class="table table-hover">
                                 <thead class="">
                                     <tr style={{backgroundColor: "#527449" , color:"white"}} >
-                                            <th class="text-center">Product Name</th>
-                                            <th class="text-center">Type</th>
-                                            <th class="text-center">Quantity</th>
+                                            <th class="text-center">Supplier Name</th>
                                             <th class="text-center">Weight</th>
-                                            <th class="text-center">Status</th>
-                                            <th class="text-center">Date</th>
+                                            <th class="text-center">Moisture Content of the Tea Leaves</th>
+                                            <th class="text-center">Ripe Tea Leaves</th>
+                                            <th class="text-center">Net Weight</th>
                                             <th class="text-center">Action</th>
                                     </tr>
                                 </thead>
 
                                 <tbody>
-                                    {AllTransferredProduct.map((AllTransferredProduct) => {
+                                    {AllReceivedTeaLeaves.map((AllReceivedTeaLeaves) => {
 
                                         return (
                                             <tr>
-                                                {/* <td onClick={() => openModal(AllTransferredProduct)} data-toggle-1="tooltip" data-placement="right" title="Click to view details" className="view-td">
-                                                    {AllTransferredProduct.supplierid}
+                                                {/* <td onClick={() => openModal(AllReceivedTeaLeaves)} data-toggle-1="tooltip" data-placement="right" title="Click to view details" className="view-td">
+                                                    {AllReceivedTeaLeaves.supplierid}
                                                 </td> */}
-                                                <td class="text-center">{AllTransferredProduct.productName}</td>
-                                                <td class="text-center">{AllTransferredProduct.type}</td>
-                                                <td class="text-center">{AllTransferredProduct.quantity}</td>
-                                                <td class="text-center">{AllTransferredProduct.weight}</td>
-                                                <td class="text-center">{AllTransferredProduct.status}</td>
-                                                <td class="text-center">{AllTransferredProduct.date}</td>
+                                                <td class="text-center">{AllReceivedTeaLeaves.suppliername}</td>
+                                                <td class="text-center">{AllReceivedTeaLeaves.weight}</td>
+                                                <td class="text-center">{AllReceivedTeaLeaves.moisture_content}</td>
+                                                <td class="text-center">{AllReceivedTeaLeaves.ripe_tea_leaves}</td>
+                                                <td class="text-center">{AllReceivedTeaLeaves.net_weight}</td>
                                                 
-                                                
+                                                    <div className='row'>
                                                     <td class="text-center ">
-                                                        <HiPencilSquare class="tbl-Action-icon mr-3" size="25px" color="green" onClick={() => openModalUpdate(AllTransferredProduct)}/>
-                                                        <HiOutlineTrash class="tbl-Action-icon" size="25px" color="red" onClick={() => openModalDelete(AllTransferredProduct)}/>
+                                                        <HiPencilSquare class="tbl-Action-icon mr-2 ml-2" size="25px" color="green" onClick={() => openModalUpdate(AllReceivedTeaLeaves)}/>
+                                                        <HiOutlineTrash class="tbl-Action-icon" size="25px" color="red" onClick={() => openModalDelete(AllReceivedTeaLeaves)}/>
                                                     </td>
-                                                
+                                                    </div>
                                             </tr>
                                         );
                                     })}
@@ -379,7 +347,7 @@ function ViewAllTransferredProduct() {
                             size="lg"
                             aria-labelledby="contained-modal-title-vcenter"
                             centered>
-                            <UpdateTransferredProductModal
+                            <UpdateUpdateReceivedTeaLeaves
                                 data={modalDataUpdate}
                                 onHide={() => setModalUpdate(false)}
                             />
@@ -404,7 +372,7 @@ function ViewAllTransferredProduct() {
 
 
 
-export default ViewAllTransferredProduct;
+export default ViewAllReceivedTeaLeaves;
 
 
 

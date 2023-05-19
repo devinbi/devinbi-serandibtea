@@ -14,6 +14,8 @@ import Viewhighperformance from "./components/EmployeeManagement/Viewhighperform
 import AddTransferredproduct from "./components/InventoryManagement/AddTransferredproduct";
 import AddSupplier from "./components/InventoryManagement/AddSupplier";
 import ViewAllTransferredProduct from "./components/InventoryManagement/ViewAllTransferredProduct";
+import ViewAllReceivedTeaLeaves from "./components/InventoryManagement/ViewAllReceivedTeaLeaves";
+import RejectedProducts from "./components/InventoryManagement/RejectedProducts"
 
 
 
@@ -46,6 +48,8 @@ function App() {
           <Route path="/AddSupplier" element={<AddSupplier />}/>
           <Route path="/AddTransferredproduct" element={<AddTransferredproduct />}/>
           <Route path="/ViewAllTransferredProduct" element={<ViewAllTransferredProduct />}/>
+          <Route path="/ViewAllReceivedTeaLeaves" element={<ViewAllReceivedTeaLeaves />}/>
+          <Route path="/RejectedProducts" element={<RejectedProducts />}/>
 
         </Routes>
       </BrowserRouter>

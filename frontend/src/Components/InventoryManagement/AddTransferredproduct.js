@@ -79,13 +79,13 @@ function AddTransferredproduct() {
                             <a href="/AddSupplier">Add Tea Leaves Quantity</a>
                         </li>
                         <li>
-                            <a href="/ViewAllReceivedTeaLeaves">View All Received Tea Leaves</a>
+                            <a href="ViewAllReceivedTeaLeaves">View All Received Tea Leaves</a>
                         </li>
                         <li>
                             <a href="/AddTransferredproduct">Add Transferred product</a>
                         </li>
                         <li>
-                            <a href="#">View Total product</a>
+                            <a href="ViewAllTransferredProduct">View All Transferred Product</a>
                         </li>
                         <li>
                             <a href="#">View Rejected Product</a>
@@ -269,7 +269,7 @@ function AddTransferredproduct() {
 
                             <div class="form mb-3">
                                 <label for="totalamount">Date :</label>
-                                <input type="text" class="form-control formInput" id="totalamount" placeholder="Enter Date"
+                                <input type="date" class="form-control formInput" id="totalamount" placeholder="Enter Date"
                                 onChange={(e)=>{
                                     setDate(e.target.value);
                                 }}/>

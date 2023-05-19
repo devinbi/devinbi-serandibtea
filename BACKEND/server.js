@@ -31,6 +31,11 @@ app.use("/product",productRouter);
 const supplierRouter = require("./routes/suppliers.js");
 app.use("/supplier",supplierRouter);
 
+const rejectedProductRouter = require("./routes/rejectedproducts.js");
+app.use("/rejectedProduct",rejectedProductRouter);
+
+
+
 
 
 const allocatingRouter = require("./routes/allocatings.js");
