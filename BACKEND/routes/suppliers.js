@@ -2,7 +2,8 @@ const router = require("express").Router();
 let Supplier = require("../models/Supplier");
 
 //Localhost:8070/equipment/add
-http: router.route("/add").post((req, res) => {
+router.route("/add").post((req, res) => {
+
   const supplierid = req.body.supplierid;
   const suppliername = req.body.suppliername;
   const weight = Number(req.body.weight);
@@ -16,7 +17,7 @@ http: router.route("/add").post((req, res) => {
     weight,
     moisture_content,
     ripe_tea_leaves,
-    net_weight,
+    net_weight
   });
 
   neweSupplier

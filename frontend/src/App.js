@@ -11,6 +11,12 @@ import Viewemployee from "./components/EmployeeManagement/Viewemployee";
 import Viewperformance from "./components/EmployeeManagement/Viewperformance";
 import Viewhighperformance from "./components/EmployeeManagement/Viewhighperformance";
 
+import AddTransferredproduct from "./components/InventoryManagement/AddTransferredproduct";
+import AddSupplier from "./components/InventoryManagement/AddSupplier";
+import ViewAllTransferredProduct from "./components/InventoryManagement/ViewAllTransferredProduct";
+
+
+
 
 
 // import Header from "./Header";
@@ -22,8 +28,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/allocating/viewallocating" element= {<Viewallocating />}/>
+          <Route path="/addAllocating" element={<AddAllocating />}/>
           <Route path="/addequipment" element={<AddEquipment />}/>
-          <Route path="/addallocating" element={<AddAllocating />}/>
           <Route path="/addmonitor" element={<Addmonitor />}/>
           <Route path="/viewmonitor" element={<Viewmonitor />}/>
           <Route path="/reporte" element={<Equipmentreport />}/>
@@ -37,6 +43,9 @@ function App() {
           
   
             
+          <Route path="/AddSupplier" element={<AddSupplier />}/>
+          <Route path="/AddTransferredproduct" element={<AddTransferredproduct />}/>
+          <Route path="/ViewAllTransferredProduct" element={<ViewAllTransferredProduct />}/>
 
         </Routes>
       </BrowserRouter>

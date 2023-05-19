@@ -93,7 +93,7 @@ function Addmonitor(){
          <div class="container input-main-form-emp pt-3">
                          <div class="container border-top">
                              <div class="row">
-                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center border border-success">
                                      <h3 className="topic-V text-left mt-4 mb-4">OEE Calculation</h3>
                                  </div>
                       </div>
