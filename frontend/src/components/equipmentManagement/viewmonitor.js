@@ -160,6 +160,9 @@ function Viewmonitor() {
                     <li>
                         <a href="/viewmonitor">View Performance Details</a>
                     </li>
+                    <li>
+                        <a href="/reporte">Equipment Detail Report</a>
+                    </li>
 
                 </ul>
             </li>

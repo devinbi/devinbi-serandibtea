@@ -18,7 +18,7 @@ import { AiOutlineBars } from 'react-icons/ai';
 
 function Viewequipment() {
 
-    // const [search, setSearch] = useState("");
+    const [search, setSearch] = useState("");
     const [isSidebarOpen, setIsSidebarOpen] = useState(false); 
     const handleSidebarToggle = () => { setIsSidebarOpen(!isSidebarOpen); };
 
@@ -119,25 +119,25 @@ function Viewequipment() {
     }
 
 
-    // function searchVehicles(e) {
+    function searchVehicles(e) {
 
 
-    //     e.preventDefault();
-    //     //console.log("search val", search);
-    //     axios.get(`http://localhost:8070/vehicle/searchV/${search}`).then((res) => {
+        e.preventDefault();
+        //console.log("search val", search);
+        axios.get(`http://localhost:8070/equipment/search/${search}`).then((res) => {
 
 
-    //         setVehicles(res.data.data.reverse());
-    //     }).catch((error) => {
-    //         Swal.fire({
-    //             icon: 'error',
-    //             title: 'Oops...',
-    //             text: 'No data found!',
-    //             confirmButtonColor: '#207159',
+        setEquipments(res.data.data.reverse());
+        }).catch((error) => {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'No data found!',
+                confirmButtonColor: '#207159',
 
-    //         })
-    //     })
-    // }
+            })
+        })
+    }
 
 
    
@@ -199,6 +199,9 @@ function Viewequipment() {
                     </li>
                     <li>
                         <a href="/viewmonitor">View Performance Details</a>
+                    </li>
+                    <li>
+                        <a href="/reporte">Equipment Detail Report</a>
                     </li>
 
                 </ul>
@@ -285,19 +288,19 @@ function Viewequipment() {
                     </div>
                 </div>
 
-                {/* <div class="row table-head-search">
+                <div class="row table-head-search">
                     <div className="col-md-8"></div>
                     <div className="col">
                         <div class="input-group input-group-search">
                             <div class="searchbar">
                                 <form id="contactform" class="form" onSubmit={searchVehicles}>
-                                    <input class="search_input" type="text" name="" placeholder="Search..." value={search} onChange={(event) => { setSearch(event.target.value) }} required />
+                                    <input class="search_input" type="text" name="" placeholder="Search..." value={search} onChange={(event) => { setSearch(event.target.value) }}  />
                                     <button class="btn search_icon" type="submit" id="submit" name="submit"><i class="fa fa-search"></i></button>
                                 </form>
                             </div>
                         </div>
                     </div>
-                </div> */}
+                </div>
 
 
 

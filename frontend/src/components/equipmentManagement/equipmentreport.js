@@ -72,8 +72,7 @@ function VehicleReport() {
 
 
     return (
-        <div className="page-component-body">
-           
+        <div className="page-component-body">          
             <div class="container input-main-form-emp">
                 <div class="tab-content-emp" id="myTabContent">
 
