@@ -13,6 +13,8 @@ import UpdateVehicleModal from './updateVehicle';
 
 
 
+
+
 function ViewAllVehicle() {
 
     // important to slide navigatebar
@@ -33,6 +35,8 @@ function ViewAllVehicle() {
 
     const [modalDataUpdate, setModalDataUpdate] = useState([]);
     const [modalUpdate, setModalUpdate] = useState(false);
+
+    const [search, setSearch] = useState("");
 
 
     useEffect(() => {
@@ -156,6 +160,24 @@ function ViewAllVehicle() {
 
     }
       
+    function searchVehicles(e) {
+
+        e.preventDefault();
+        //console.log("search val", search);
+        axios.get(`http://localhost:8070/Vehicle/searchV/${search}`).then((res) => {
+
+        setViewAllVehicle(res.data.data.reverse());
+        }).catch((error) => {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'No data found!',
+                confirmButtonColor: '#207159',
+
+            })
+        })
+    }
+
 
 
     return(
@@ -315,6 +337,29 @@ function ViewAllVehicle() {
                                 onHide={() => setModalShow(false)}
                             />
                             </Modal>
+
+                            
+                            <div className="col-md-8"></div>
+
+<div className="col">
+
+    <div class="input-group input-group-search">
+
+        <div class="searchbar">
+
+            <form id="contactform" class="form" onSubmit={searchVehicles}>
+
+                <input class="search_input" type="text" name="" placeholder="Search..." value={search} onChange={(event) => { setSearch(event.target.value) }}  />
+
+                <button class="btn search_icon" type="submit" id="submit" name="submit"><i class="fa fa-search"></i></button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
 
 
 
