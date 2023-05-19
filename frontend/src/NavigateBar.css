@@ -8,6 +8,15 @@ body {
     background: #fafafa;
 }
 
+p {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    font-size: 1.8em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+    border-bottom: 1px solid #0b4b1b;
+}
 
 a,
 a:hover,
@@ -92,6 +101,7 @@ a:focus {
 #sidebar ul li a:hover {
     
     color: #000000;
+    background-image: linear-gradient(315deg, #52a781 2%, #6fccad 74%);
     background-image: linear-gradient(315deg, #1ca055 50%, #104126 100%);
     font-weight: 900;
     /* background-image: linear-gradient(315deg, #48a88a 0%, #0a854e 74%); */

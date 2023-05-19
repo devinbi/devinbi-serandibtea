@@ -5,6 +5,11 @@ import Addmonitor from "./components/equipmentManagement/Addmonitor";
 import Viewmonitor from "./components/equipmentManagement/viewmonitor";
 import Viewallocating from "./components/equipmentManagement/viewallocating";
 import Equipmentreport from "./components/equipmentManagement/equipmentreport";
+import AddEmployee from "./components/EmployeeManagement/Addemployee";
+import AddPerformance from "./components/EmployeeManagement/Addperformance";
+import Viewemployee from "./components/EmployeeManagement/Viewemployee";
+import Viewperformance from "./components/EmployeeManagement/Viewperformance";
+import Viewhighperformance from "./components/EmployeeManagement/Viewhighperformance";
 
 import AddTransferredproduct from "./components/InventoryManagement/AddTransferredproduct";
 import AddSupplier from "./components/InventoryManagement/AddSupplier";
@@ -29,6 +34,13 @@ function App() {
           <Route path="/viewmonitor" element={<Viewmonitor />}/>
           <Route path="/reporte" element={<Equipmentreport />}/>
           <Route path="/equipment/viewequipment" element={<Equipmentview />}/>
+          <Route path="/addemployee" element={<AddEmployee />}/>
+          <Route path="/addperformance" element={<AddPerformance />}/>
+          <Route path="/employee/Viewemployee" element={<Viewemployee />}/>
+          <Route path="performance/Viewperformance" element={<Viewperformance />}/>
+          <Route path="performance/Viewhighperformance" element={<Viewhighperformance />}/>
+         
+          
   
             
           <Route path="/AddSupplier" element={<AddSupplier />}/>

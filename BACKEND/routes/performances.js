@@ -65,7 +65,7 @@ router.route("/update/:id").put(async (req,res)=>{
 
 //Delete Employee
 
-router.route("/delete/:id").delete(async (req, res)=>{
+router.route("/delete/:id").post(async (req, res)=>{
 
     let performanceID = req.params.id;
   
@@ -90,7 +90,44 @@ router.route("/get/:id").get(async (req, res)=> {
     })
 })
 
+//filter user deatils -- (get filtered by performance)
 
+router.route("/filter").get((req, res) => {
+    // let performanceID = req.params.id;
+     performance.find({
+       attendanceCount: { $gt: 250 },
+       otCount: { $gt: 750 }
+     })
+     .then((performance) => {
+       res.json(performance)
+     })
+     .catch((err) => {
+       console.log(err);
+       res.status(500).send({ status: "Error with fetching data", error: err.message })
+     })
+   })
+
+
+   router.route("/search/:empID").get(async (req, res) => {
+
+    let employeeID = req.params.empID;
+    
+     try {
+        const responses = await performance.find({ 'employeeId': employeeID})
+        console.log(responses)
+    return res.status(200).send({ status: "Success", data: responses });
+    
+    
+    
+    } catch (error) {
+    
+         console.log("something went wrong!!");
+    
+         return { ok: flase };
+    
+     }
+    
+    })
 
 module.exports = router; 
 
