@@ -10,12 +10,17 @@ import { HiOutlineTrash } from "react-icons/hi2";
 
 import UpdateEquipmentModal from "./updateequipment";
 import Header from "../../Header";
+import "../../NavigateBar.css";
+import { FiLogOut } from 'react-icons/fi';
+import { AiOutlineBars } from 'react-icons/ai';
 
 
 
 function Viewequipment() {
 
-    // const [search, setSearch] = useState("");
+    const [search, setSearch] = useState("");
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false); 
+    const handleSidebarToggle = () => { setIsSidebarOpen(!isSidebarOpen); };
 
     const [equipments, setEquipments] = useState([]);
 
@@ -114,30 +119,150 @@ function Viewequipment() {
     }
 
 
-    // function searchVehicles(e) {
+    function searchVehicles(e) {
 
 
-    //     e.preventDefault();
-    //     //console.log("search val", search);
-    //     axios.get(`http://localhost:8070/vehicle/searchV/${search}`).then((res) => {
+        e.preventDefault();
+        //console.log("search val", search);
+        axios.get(`http://localhost:8070/equipment/search/${search}`).then((res) => {
 
 
-    //         setVehicles(res.data.data.reverse());
-    //     }).catch((error) => {
-    //         Swal.fire({
-    //             icon: 'error',
-    //             title: 'Oops...',
-    //             text: 'No data found!',
-    //             confirmButtonColor: '#207159',
+        setEquipments(res.data.data.reverse());
+        }).catch((error) => {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'No data found!',
+                confirmButtonColor: '#207159',
 
-    //         })
-    //     })
-    // }
+            })
+        })
+    }
 
 
    
 
     return (
+       
+    <div class="wrapper">
+        
+    <nav id="sidebar" className={isSidebarOpen ? "active" : ""}>
+        <div class="sidebar-header">
+            <h3></h3>
+            <div class="logo">
+            {/* <img src={require('./images/logo1.png')} alt="logo" /> */}
+            <img src="/images/logo1.png" alt="logo"/>
+            
+            </div>
+        </div>
+
+        <ul class="list-unstyled components">
+            {/* <p>SIDE NAVIGATE BAR</p> */}
+            <li >
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Inventory Management</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <li>
+                        <a href="/AddSupplier">Add Tea Leaves Quantity</a>
+                    </li>
+                    <li>
+                        <a href="/ViewAllReceivedTeaLeaves">View All Received Tea Leaves</a>
+                    </li>
+                    <li>
+                        <a href="/AddTransferredproduct">Add Transferred product</a>
+                    </li>
+                    <li>
+                        <a href="#">View Total product</a>
+                    </li>
+                    <li>
+                        <a href="#">View Rejected Product</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Equipment Management</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li>
+                        <a href="/addequipment">Add Equipment Details</a>
+                    </li>
+                    <li>
+                        <a href="/equipment/viewequipment">View Equipment Details</a>
+                    </li>
+                    <li>
+                        <a href="/addallocating">Allocate Equipment</a>
+                    </li>
+                    <li>
+                        <a href="/allocating/viewallocating">View Allocate Details</a>
+                    </li>
+                    <li>
+                        <a href="/addmonitor">Monitoring Equipment</a>
+                    </li>
+                    <li>
+                        <a href="/viewmonitor">View Performance Details</a>
+                    </li>
+                    <li>
+                        <a href="/reporte">Equipment Detail Report</a>
+                    </li>
+
+                </ul>
+            </li>
+            <li>
+                <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Employee Management</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu1">
+                    <li>
+                        <a href="#">Add Employees</a>
+                    </li>
+                    <li>
+                        <a href="#">View Employees</a>
+                    </li>
+                    <li>
+                        <a href="#">Add Performance</a>
+                    </li>
+                    <li>
+                        <a href="#">View Performance</a>
+                    </li>
+                    <li>
+                        <a href="#">High Performance list</a>
+                    </li>
+                    <li>
+                        <a href="#">Resigned Employees</a>
+                    </li>
+
+                </ul>
+            </li>
+            <li>
+                <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle ">Equipment Management</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu2">
+                    <li>
+                        <a href="#">Add Equipment Details</a>
+                    </li>
+                    <li>
+                        <a href="#">View Equipment Details</a>
+                    </li>
+                    <li>
+                        <a href="#">Allocate Equipment</a>
+                    </li>
+                    <li>
+                        <a href="#">View Allocate Details</a>
+                    </li>
+                    <li>
+                        <a href="#">Monitoring Equipment</a>
+                    </li>
+                    <li>
+                        <a href="#">View Performance Details</a>
+                    </li>
+
+                </ul>
+            </li>
+        </ul>
+        
+        
+        <button class="logout-button"><FiLogOut />Logout</button>
+
+
+    </nav>
+
+
 
         <div className="page-component-body">
             {/* <Header></Header> */}
@@ -156,26 +281,26 @@ function Viewequipment() {
             </Modal>
 
 
-            <div className="table-emp">
+            <div className="table-emp3">
                 <div class="row table-head mt-3">
                     <div class="col">
-                        <h3 className="float-left ">Equipment Details</h3>
+                        <h3 className="text-center ">Equipment Details</h3>
                     </div>
                 </div>
 
-                {/* <div class="row table-head-search">
+                <div class="row table-head-search">
                     <div className="col-md-8"></div>
                     <div className="col">
                         <div class="input-group input-group-search">
                             <div class="searchbar">
                                 <form id="contactform" class="form" onSubmit={searchVehicles}>
-                                    <input class="search_input" type="text" name="" placeholder="Search..." value={search} onChange={(event) => { setSearch(event.target.value) }} required />
+                                    <input class="search_input" type="text" name="" placeholder="Search..." value={search} onChange={(event) => { setSearch(event.target.value) }}  />
                                     <button class="btn search_icon" type="submit" id="submit" name="submit"><i class="fa fa-search"></i></button>
                                 </form>
                             </div>
                         </div>
                     </div>
-                </div> */}
+                </div>
 
 
 
@@ -271,9 +396,10 @@ function Viewequipment() {
         </Modal>
 
         </div>
-
+    </div>
 
     )
 }
 
 export default Viewequipment;
+

@@ -119,6 +119,10 @@ router.route("/reporte/:dateFrom/:dateTo").get(async (req, res) => {
     }).catch((err) => {
         console.log(err);
     })
+
+
+
+    
 })
 
 module.exports = router;

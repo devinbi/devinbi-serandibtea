@@ -77,7 +77,6 @@
     border-collapse: collapse;
     border-spacing: 0;
     color: rgb(255, 255, 255);
-    font-family: arial;
     font-size: 16px;
     text-decoration: none;
     -webkit-transform: translateZ(0) scale(1, 1);
@@ -546,6 +545,25 @@
     border-radius: 0.5rem;
     box-shadow: 0px 0px 10px 2px rgba(137, 6, 6, 0.2),
       0px 0px 10px 0px rgba(0, 0, 0, 0.19);
+  }
+
+  .table-emp2 {
+    position:relative;
+    margin: 35px 35px 30px 35px;
+    padding: 5px 5px 5px 5px;
+    width: 2000px;
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 10px 2px rgba(95, 94, 94, 0.2),
+      0px 0px 10px 0px rgba(100, 100, 100, 0.19);
+  }
+  .table-emp3 {
+    position:relative;
+    margin: 35px 35px 30px 35px;
+    padding: 5px 5px 5px 5px;
+    width: 1400px;
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 10px 2px rgba(95, 94, 94, 0.2),
+      0px 0px 10px 0px rgba(100, 100, 100, 0.19);
   }
   .table-emp1 {
     position:relative;

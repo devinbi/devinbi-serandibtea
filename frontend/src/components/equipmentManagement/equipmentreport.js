@@ -3,7 +3,7 @@ import axios from "axios";
 import DatePicker from 'react-datetime';
 import 'react-datetime/css/react-datetime.css';
 import Pdf from "react-to-pdf";
-import Swal from "sweetalert2";
+import Swal from "sweetalert2"; 
 
 const ref = React.createRef();
 
@@ -72,8 +72,7 @@ function VehicleReport() {
 
 
     return (
-        <div className="page-component-body">
-           
+        <div className="page-component-body">          
             <div class="container input-main-form-emp">
                 <div class="tab-content-emp" id="myTabContent">
 
@@ -151,7 +150,7 @@ function VehicleReport() {
                 </div>
 
                 <div id="myTabContent2" style={{ display: "none" }}>
-                    <Pdf targetRef={ref} filename="VehicleReport.pdf">
+                    <Pdf targetRef={ref} filename="Equipmentreport.pdf">
                         {({ toPdf }) => <button class="btn btn-download white" onClick={toPdf}><i class="fa fa-download" aria-hidden="true"></i></button>}
                     </Pdf>
                     <div ref={ref} className="pl-4">

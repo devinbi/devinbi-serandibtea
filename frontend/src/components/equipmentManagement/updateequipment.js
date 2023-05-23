@@ -23,10 +23,10 @@ function UpdateEquipmentModal(equipment) {
             setIntertek(equipment.data.intertek);
             setStatus(equipment.data.status);
             
-
+//ttt
 
         } catch {
-            window.alert("something went wrong");
+           
         }
     }, [equipment.data]);
 
@@ -55,13 +55,6 @@ function UpdateEquipmentModal(equipment) {
 
             }
 
-            // const updateVehicle (VehicleID, newVehicle).then((response) => {
-            //     // const message = response.ok
-            //     //     ? "Employee insertion successful"
-            //     //     : response.err;
-            //     // alert(message);
-            //     //window.location.replace("/empList");
-            // });
 
             axios.put(`http://localhost:8070/equipment/update/${equipment.data._id}`, newEquipment)
 
@@ -95,63 +88,6 @@ function UpdateEquipmentModal(equipment) {
 
    }
            
-    
-
-    // const [isYearsValid, setYearsValid] = useState(false);
-    // const [Yearmessage, setYearMessage] = useState('');
-
-
-    // const validateYears = (event) => {
-    //     const YearsRent = event.target.value;
-    //     if (YearsRent == 0) {
-    //         setYearsValid(false);
-    //         setYearMessage('Number of years should be more than 0 !');
-    //     }
-    //     else if (YearsRent < 11) {
-    //         setYearsValid(true);
-    //         setYearMessage('Years of rent loking good ');
-    //     } else {
-    //         setYearsValid(false);
-    //         setYearMessage('Number of years should be less than 10 !');
-    //     }
-    // };
-
-
-    // const YearsValidation = () => {//validate function
-
-    //     const YearsErr = {}; //State
-    //     let YearsValid = true; //setting flag
-
-
-    //     if (YearsRent == 0) {
-    //         YearsErr.InValidYears = " Number of years should be More than 0"; // error msg
-    //         YearsValid = false;
-    //         Swal.fire({
-    //             icon: 'error',
-    //             title: 'Oops...Numbers Years Invalid ',
-    //             text: ' Number of years should be more than 0!!',
-    //             confirmButtonColor: '#1fc191',
-    //             // footer: '<a href=""#home">Why do I have this issue?</a>'
-    //         })
-    //     }
-    //     else if (YearsRent > 10) {
-    //         YearsErr.InValidYears = " Number of years should be less than 10 !"; // error msg
-    //         YearsValid = false;
-    //         Swal.fire({
-    //             icon: 'error',
-    //             title: 'Oops...Numbers Years Invalid',
-    //             text: 'Number of years should be less than 10!!',
-    //             confirmButtonColor: '#1fc191',
-    //             // footer: '<a href=""#home">Why do I have this issue?</a>'
-    //         })
-    //     }
-
-
-    //     setYearsErr(YearsErr);//update error objects
-    //     return YearsValid;
-
-
-    // }
 
 
 
@@ -168,7 +104,7 @@ function UpdateEquipmentModal(equipment) {
                         <form id="contact-form" class="form" action="#" method="POST" role="form" onSubmit={sendData}>
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                                    <h3 className="topic-V text-left mt-1 mb-4">equipment Details</h3>
+                                    <h3 className="topic-V text-left mt-1 mb-4">Equipment Details</h3>
                                 </div>
                             </div>
                             <div className="row">
@@ -259,13 +195,18 @@ function UpdateEquipmentModal(equipment) {
                             <div className="row">
                                 <div class="form-group col-md-6">
                                     <label class="form-label-emp" for="subject">Status</label>
-                                    <input required type="text" class="form-control formInput" id="InsCom" name="InsCom" placeholder="Insurance Company Name" tabindex="2" 
+                                    <select type="text" class="form-control formInput" id="InsCom" name="InsCom" placeholder="Insurance Company Name" tabindex="2" 
                                         value={status}
                                         onChange={(e) => {
                                           setStatus(e.target.value);
                                         }}
 
-                                    />
+                                    >
+                                      <option >CHOOSE</option>  
+                                      <option value="repair">repair</option>
+                                      <option value="Maintenance">Maintenance </option>
+                                      <option value="replace">replace</option>
+                                      </select>
                                 </div>
                             </div>
 
