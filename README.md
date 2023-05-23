@@ -1,4 +1,4 @@
-# devinbi-serandibtea
+# serandibtea
 Group No :	 GRP_54
 	SDG –  Industry, Innovation and Infrastructure 
 
