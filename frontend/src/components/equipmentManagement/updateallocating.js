@@ -23,7 +23,7 @@ function UpdateallocatingModal(allocating) {
             
 
         } catch {
-            window.alert("something went wrong");
+           
         }
     }, [allocating.data]);
 

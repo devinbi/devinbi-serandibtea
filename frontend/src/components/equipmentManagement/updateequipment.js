@@ -26,7 +26,7 @@ function UpdateEquipmentModal(equipment) {
 //ttt
 
         } catch {
-            window.alert("something went wrong");
+           
         }
     }, [equipment.data]);
 

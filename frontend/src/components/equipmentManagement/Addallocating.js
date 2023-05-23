@@ -110,15 +110,15 @@ function AddAllocating(){
         const RegNo = event.target.value;
         if (VehRegex1.test(RegNo)) {
             setRegIsValid(true);
-            setRegMessage('Vehicle Registation Number looks good!');
+            setRegMessage('Equipment Registation Number looks good!');
         } else if (VehRegex2.test(RegNo)) {
             setRegIsValid(true);
-            setRegMessage('Vehicle Registation Number looks good!');
+            setRegMessage('Equipment Registation Number looks good!');
 
         }
         else {
             setRegIsValid(false);
-            setRegMessage('Please enter a valid Vehicle Registation Number !');
+            setRegMessage('Please enter a valid Equipment Registation Number !');
         }
     };
 
@@ -321,7 +321,7 @@ return(
                             </div>
                             
                             <div class="form mb-2">
-                                <label for="totalamount"> Hours</label> 
+                                <label for="totalamount">Expected Hours of use</label> 
                                 <input type="number" class="form-control" id="totalamount" placeholder="Enter number of hours " required
                                 onChange={(e)=>{
                                     setHours(e.target.value);
@@ -330,7 +330,7 @@ return(
                             </div>
 
                             <div class="form mb-2">
-                                <label for="totalamount">result:</label>
+                                <label for="totalamount">Total watts</label>
                                 <input type="text" class="form-control" id="net_weight" disabled
                                 value={result}/>
 
